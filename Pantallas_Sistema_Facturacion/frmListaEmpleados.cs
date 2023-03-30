@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Capa_LogicaDeNegocios; // anexamos la libreria de la clase.
 
 namespace Pantallas_Sistema_Facturacion
 {
@@ -16,15 +17,24 @@ namespace Pantallas_Sistema_Facturacion
         {
             InitializeComponent();
         }
-        DataTable DataTable = new DataTable();
-        //AccesoDatos accesoDatos= new AccesoDatos();
+        DataTable Dt = new DataTable(); // datatable para consulta de datos.
+        Cls_Empleados Empleado = new Cls_Empleados(); // instanciamos el objeto empleado.
 
         public void LLenar_Grid()
         {
-            dgEmpleados.Rows.Clear();
-            string Sentencia = $"SELECT IdEmpleado, strNombre, NumDocumento, StrTelefono, StrEmail, IdRolEmpleado, DtmIngreso, DtmRetiro FROM TBLEMPLEADO";
-           // DataTable= accesoDatos.EjecutarComandoDatos(Sentencia);
-            foreach (DataRow dr in DataTable.Rows) { dgEmpleados.Rows.Add(dr[0], dr[1], dr[2], dr[3], dr[4], dr[5], dr[6], dr[7]); }
+            dgEmpleados.Rows.Clear(); // limpiamos los datos privios del datagrid
+            Dt = Empleado.ConsultaEmpleado(); // llenamos al datatable con los datos retornados desde el metodo ConsultaEmpleado.
+            if (Dt.Rows.Count > 0) // verifico si retotno valores
+            {
+                foreach (DataRow row in Dt.Rows) // esta instruccion permite recorrer todas las filas retornadas.
+                {
+                    dgEmpleados.Rows.Add(row[0].ToString(), row[1].ToString(), row[2].ToString(), row[3].ToString(), row[4].ToString()); // llenamos el grid.
+                }
+            }
+            else
+            {
+                MessageBox.Show("No se encontraron Registros");
+            }
         }
         private void frmListaEmpleados_Load(object sender, EventArgs e)
         {
@@ -33,15 +43,25 @@ namespace Pantallas_Sistema_Facturacion
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            if (txtBuscar.Text != string.Empty)
+            if (txtBuscar.Text != string.Empty) // verifico si ingresaron texto a buscar.
             {
                 dgEmpleados.Rows.Clear();
-                string Sentencia = $"SELECT IdEmpleado, strNombre, NumDocumento, StrTelefono, StrEmail, IdRolEmpleado, DtmIngreso, DtmRetiro FROM TBLEMPLEADO WHERE strNombre LIKE '%{txtBuscar.Text}%' ";
-               // DataTable = accesoDatos.EjecutarComandoDatos(Sentencia);
-                foreach (DataRow dr in DataTable.Rows) { dgEmpleados.Rows.Add(dr[0], dr[1], dr[2], dr[3], dr[4], dr[5], dr[6], dr[7]); }
+                Dt = Empleado.FiltrarEmpleado(txtBuscar.Text); // invocamos filtrar empleado con el texto a buscar como parametro.
+
+                if (Dt.Rows.Count > 0) // si retorna valores los recorremos para llenar el gridview.
+                {
+                    foreach (DataRow dr in Dt.Rows) { dgEmpleados.Rows.Add(dr[0], dr[1], dr[2], dr[3], dr[4], dr[5], dr[6], dr[7]); }
+                }
+                else
+                {
+                    MessageBox.Show("No se encontraron registros por la busqueda Solicitada");
+                    LLenar_Grid();
+                }
                 
             }
             else { LLenar_Grid(); }
+
+            txtBuscar.Text = string.Empty;
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)

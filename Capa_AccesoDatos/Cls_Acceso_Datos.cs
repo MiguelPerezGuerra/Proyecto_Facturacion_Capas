@@ -124,5 +124,50 @@ namespace Capa_AccesoDatos
                 return salida;
             }
         }
+
+        // recibe una sententencia SQL o un porcedimiento para  UPDATE, INSERT Y DELETE, retorna mensaje indicando si actualizo o no.
+        public string EjecutarComando(string sentencia)
+        {
+            string salida = string.Empty;
+            try
+            {
+                int retornado;
+                AbrirBD();
+                Cmd = new SqlCommand(sentencia, Conexion); // indicamos la sentencia a ejecutar y la conexion a la BD.
+                retornado = Cmd.ExecuteNonQuery(); // en retornado recibe el Nro de filas afectados.
+                CerrarBD();
+                if (retornado > 0)
+                {
+                    salida = "Los datos fueron Actualizados";
+                }
+                else
+                {
+                    salida = "Los datos no fueron Actualizados";
+                }
+            }
+            catch (Exception ex)
+            {
+                salida = "ERROR: Falló operación: " + ex;
+            }
+            return salida;
+        }
+
+        //Método que permite realizar una consulta en una o varias tablas y retorna un conjunto de registros en un DATATABLE - Ideal para llenar el datagrid y los combos.
+        public DataTable EjecutarConsulta(string cmd)
+        {
+            try
+            {
+                AbrirBD();
+                Da = new SqlDataAdapter(cmd, Conexion);
+                Dt = new DataTable();
+                Da.Fill(Dt);
+                CerrarBD();
+                return Dt;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
     }
 }
