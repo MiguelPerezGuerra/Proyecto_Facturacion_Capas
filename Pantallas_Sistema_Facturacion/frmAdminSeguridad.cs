@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Capa_LogicaDeNegocios;
 
 namespace Pantallas_Sistema_Facturacion
 {
@@ -17,16 +18,33 @@ namespace Pantallas_Sistema_Facturacion
             InitializeComponent();
         }
 
+        DataTable DataTable = new DataTable();
+        Cls_Seguridad SeguridadEmpleado = new Cls_Seguridad();
         private void LLenarComboEmpleados()
         {
-            DataTable dataTable= new DataTable();
-            //AccesoDatos accesoDatos = new AccesoDatos();
-            //dataTable = accesoDatos.CargarTabla("TBLEMPLEADO", ""); 
+            // invocamos metodo de consulta de los empleados.
+            cboEmpleado.DataSource = SeguridadEmpleado.ConsultarEmpleados();
+            // informacion del nombre del empleado:
+            cboEmpleado.DisplayMember = "StrNombre";
+            // codigo internno que identifica idEmpleado.
+            cboEmpleado.ValueMember = "IdEmpleado";
+        }
 
-            cboEmpleado.DataSource= dataTable;
-            cboEmpleado.DisplayMember= "strNombre";
-            cboEmpleado.ValueMember= "IdEmpleado";
-            //accesoDatos.CerrarBd();
+        public void Consultar()
+        {
+            int IdEmpleado = int.Parse(cboEmpleado.SelectedValue.ToString());
+            DataTable = SeguridadEmpleado.ConsultaSeguridadEmpleado(IdEmpleado); // consultamos el empleado con un idempleado.
+            if (DataTable.Rows.Count > 0)
+            {
+                txtUsuario.Text = DataTable.Rows[0].ToString();
+                txtClave.Text = DataTable.Rows[1].ToString();
+            }
+            else
+            {
+                MessageBox.Show("No se le ha asignado usuario y clave a este Empleado");
+                txtUsuario.Text = string.Empty;
+                txtClave.Text = string.Empty;
+            }
         }
 
         private Boolean Validar()
@@ -76,57 +94,52 @@ namespace Pantallas_Sistema_Facturacion
         }
 
         // metodo que permite guardar los datos de ingreso a un usuario
-        public bool Guardar()
+        public void Guardar()
         {
-            Boolean actualizado = false;
+            string mensaje = string.Empty;
             if (Validar())
             {
-                try
-                {
-                    //AccesoDatos accesoDatos = new AccesoDatos();
-                    string Sentencia = $"Exec [actualizar_Seguridad] '{Convert.ToInt32(cboEmpleado.SelectedValue)}', '{txtUsuario.Text}', '{txtClave.Text}', '{DateTime.Now}', 'Javier' ";
-                    //MessageBox.Show(accesoDatos.EjecutarComando(Sentencia));
-                    actualizado = true;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Falló inserción: " + ex);
-                    actualizado = false;
-                }
+
+                SeguridadEmpleado.C_IdEmpleado = int.Parse(cboEmpleado.SelectedValue.ToString());
+                SeguridadEmpleado.C_StrUsuario = txtUsuario.Text;
+                SeguridadEmpleado.C_StrClave = txtClave.Text;
+                SeguridadEmpleado.C_StrUsuarioModifico = "Javier";
+                // invocamos el metodo de Actualizar.
+                mensaje = SeguridadEmpleado.ActualizarSeguridadEmpleado();
+                MessageBox.Show(mensaje);               
             }
 
-            return actualizado;
+            txtClave.Text = string.Empty;
+            txtUsuario.Text = string.Empty;
+
         }
 
         // funcion que permite eliminar los datos de ingreso de un usuario
         public void Eliminar()
         {
-            //AccesoDatos accesoDatos = new AccesoDatos();
-            string Sentencia = $"Exec [Eliminar_Seguridad] '{Convert.ToInt32(cboEmpleado.SelectedValue)}' ";
-            //MessageBox.Show(accesoDatos.EjecutarComando(Sentencia));
-            txtUsuario.Text = string.Empty;
-            txtClave.Text = string.Empty;
-        }
+            // preguntamos si esta seguro de borrar los registros.
+            if (MessageBox.Show($"ESTA SEGURO DE BORRAR EL REGISTRO DE : \n {cboEmpleado.Text}", "COMFIRMACION", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                // pasamos el parametro del ide empleado que vamos a modificar.
+                SeguridadEmpleado.C_IdEmpleado = int.Parse(cboEmpleado.SelectedValue.ToString());
+                // ejecutamos el borrado.
+                string mensaje = SeguridadEmpleado.EliminarSeguridadEmpleados();
+                if (mensaje != string.Empty)
+                {
+                    MessageBox.Show(mensaje);
+                }
+                else
+                {
+                    MessageBox.Show($"BORRANDO EL REGISTRO");
+                }
 
-        // funcion que permite consultar los datos de ingreso de un usuario
-        public void Consultar()
-        {
-            DataTable dataTable= new DataTable();
-            string Sentencia = $"SELECT StrUsuario, StrClave FROM TBLSEGURIDAD WHERE IdEmpleado= {cboEmpleado.SelectedValue.ToString()} ";
-            //AccesoDatos accesoDatos = new AccesoDatos();
-            //dataTable = accesoDatos.EjecutarComandoDatos(Sentencia);
-            if (dataTable.Rows.Count > 0)
-            {
-                txtUsuario.Text = dataTable.Rows[0]["StrUsuario"].ToString();
-                txtClave.Text = dataTable.Rows[0]["StrClave"].ToString();
-            }
-            else
-            {
-                MessageBox.Show("El Usuario ni dispone de datos de ingreso");
                 txtUsuario.Text = string.Empty;
                 txtClave.Text = string.Empty;
             }
         }
+
+        // funcion que permite consultar los datos de ingreso de un usuario
+        
 
         private void frmAdminSeguridad_Load(object sender, EventArgs e)
         {
