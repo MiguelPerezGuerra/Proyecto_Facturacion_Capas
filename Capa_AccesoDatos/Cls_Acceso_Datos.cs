@@ -76,7 +76,7 @@ namespace Capa_AccesoDatos
         }
 
         // permite ejecutar procedimientos almacenados en la base de datos, los parametros se pasan por medio de una lista (list).
-        public string EjecutarProcedimineto(string procedimiento, List<Cls_Parametros> lst)
+        public string EjecutarProcedimiento(string procedimiento, List<Cls_Parametros> lst)
         {
             string salida= string.Empty;
 
@@ -164,7 +164,7 @@ namespace Capa_AccesoDatos
                 CerrarBD();
                 return Dt;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return null;
             }

@@ -37,7 +37,7 @@ namespace Capa_LogicaDeNegocios
                 Dt = AccesoDatos.EjecutarConsulta(sentencia);
                 return Dt;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return null;
             }
@@ -103,7 +103,7 @@ namespace Capa_LogicaDeNegocios
                 // adicionamos el parametro que permite indicar el IdEmpleado que borraremos
                 Lst.Add(new Cls_Parametros("@IdEmpleado", C_IdEmpleado));
                 // ejecutamos el procedimiento y pasamos lst con los parametros anteriores.
-                mensaje = AccesoDatos.EjecutarProcedimineto("eliminar_Empleado", Lst);
+                mensaje = AccesoDatos.EjecutarProcedimiento("eliminar_Empleado", Lst);
 
             }
             catch (Exception ex)
@@ -135,7 +135,7 @@ namespace Capa_LogicaDeNegocios
                 Lst.Add(new Cls_Parametros("@StrUsuarioModifico", C_StrUsuarioModifico));
 
                 // ejecutamos el procedimiento y pasamos lst con todos los parametros.
-                mensaje = AccesoDatos.EjecutarProcedimineto("actualizar_Empleado", Lst);
+                mensaje = AccesoDatos.EjecutarProcedimiento("actualizar_Empleado", Lst);
 
 
             }
