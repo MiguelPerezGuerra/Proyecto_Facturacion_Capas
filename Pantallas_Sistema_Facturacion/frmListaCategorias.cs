@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MaterialSkin;
 using MaterialSkin.Controls;
+using Capa_LogicaDeNegocios;
 
 namespace Pantallas_Sistema_Facturacion
 {
@@ -18,15 +19,24 @@ namespace Pantallas_Sistema_Facturacion
         {
             InitializeComponent();
         }
-        DataTable DataTable = new DataTable();
-        ///AccesoDatos AccesoDatos = new AccesoDatos();
+        DataTable Dt = new DataTable();
+        Cls_Categoria_Prod Categoria = new Cls_Categoria_Prod();
 
         public void LLenarGrid()
         {
             dgCategoria.Rows.Clear();
-            string Sentencia = $"SELECT IdCategoria, StrDescripcion FROM TBLCATEGORIA_PROD";
-           // DataTable = AccesoDatos.EjecutarComandoDatos(Sentencia);
-            foreach (DataRow row in DataTable.Rows) { dgCategoria.Rows.Add(row[0], row[1]); }
+            Dt = Categoria.ConsultarCategoria();
+            if (Dt.Rows.Count > 0)
+            {
+                foreach (DataRow row in Dt.Rows)
+                {
+                    dgCategoria.Rows.Add(row[0].ToString(), row[1].ToString());
+                }
+            }
+            else
+            {
+                MessageBox.Show("No se encontraron Registros");
+            }
 
         }
 
@@ -40,11 +50,23 @@ namespace Pantallas_Sistema_Facturacion
             if (txtBuscar.Text != string.Empty)
             {
                 dgCategoria.Rows.Clear();
-                string Sentencia = $"SELECT  IdCategoria, StrDescripcion FROM TBLCATEGORIA_PROD WHERE StrDescripcion LIKE '%{txtBuscar.Text}%'";
-              //  DataTable = AccesoDatos.EjecutarComandoDatos(Sentencia);
-                foreach (DataRow row in DataTable.Rows) { dgCategoria.Rows.Add(row[0], row[1]); }
+                Dt = Categoria.FiltrarEmpleado(txtBuscar.Text);
+                if (Dt.Rows.Count > 0)
+                {
+                    foreach (DataRow row in Dt.Rows) { dgCategoria.Rows.Add(row[0], row[1]); }
+                }
+                else
+                {
+                    MessageBox.Show("No se encontraron registros por la busqueda solicitada");
+                    LLenarGrid();
+                }
+                
             }
-            else { LLenarGrid(); }
+            else 
+            { 
+                LLenarGrid(); 
+            }
+            txtBuscar.Text = string.Empty;
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -63,10 +85,9 @@ namespace Pantallas_Sistema_Facturacion
                 if (MessageBox.Show($"Seguro de borrar la Categoria {dgCategoria[1, posActual].Value.ToString()}" , "COMFIRMACION", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
  
-                    int IdCategoria = Convert.ToInt32(dgCategoria[0,posActual].Value.ToString());
-                    string Sentencia = $"Exec Eliminar_CategoriaProducto {IdCategoria}";
-                   // string Mensaje = AccesoDatos.EjecutarComando(Sentencia);
-                    // MessageBox.Show(Mensaje);
+                    Categoria.C_IdCategoria = Convert.ToInt32(dgCategoria[0,posActual].Value.ToString());
+                    string mensaje = Categoria.EliminarCategoria();
+                    MessageBox.Show(mensaje);
                     LLenarGrid();
                 }
 
@@ -74,9 +95,9 @@ namespace Pantallas_Sistema_Facturacion
             if (dgCategoria.Columns[e.ColumnIndex].Name == "btnEditar") //verificamos si presiono el boton editar
             {
                 int posActual = dgCategoria.CurrentRow.Index;  //tomamos la fila seleccionada
-                frmCategoriaProductos Categoria = new frmCategoriaProductos(); // instanciamos el formulario
-                Categoria.IdCategoria = int.Parse(dgCategoria[0, posActual].Value.ToString()); // pasamos al formulario de edicion el ID del cliente seleccionado
-                Categoria.ShowDialog(); // mostramos el formulario en forma modal
+                frmCategoriaProductos frmCategoria = new frmCategoriaProductos(); // instanciamos el formulario
+                frmCategoria.IdCategoria = int.Parse(dgCategoria[0, posActual].Value.ToString()); // pasamos al formulario de edicion el ID del cliente seleccionado
+                frmCategoria.ShowDialog(); // mostramos el formulario en forma modal
                 LLenarGrid();
             }
         }

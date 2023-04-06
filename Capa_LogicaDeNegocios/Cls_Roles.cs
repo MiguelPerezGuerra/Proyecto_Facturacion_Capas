@@ -5,27 +5,42 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using Capa_AccesoDatos;
-using System.Runtime.CompilerServices;
 using System.Security.Policy;
+using System.Runtime.CompilerServices;
 
 namespace Capa_LogicaDeNegocios
 {
-    public class Cls_Categoria_Prod
+    public class Cls_Roles
     {
         //Definimos los atributos de la clase
-        public int C_IdCategoria { get; set; }
+        public int C_IdRolEmpleado { get; set; }
         public string C_StrDescripcion { get; set; }
-        public DateTime C_DtmFechaModifica { get; set; }
-        public string C_StrUsuarioModifico { get; set; }
 
         Cls_Acceso_Datos AccesoDatos = new Cls_Acceso_Datos();
 
-        public DataTable ConsultarCategoria()
+        public DataTable ConsultaRol()
+        {
+            string sententcia = string.Empty;
+            try
+            {
+                sententcia = "SELECT * FROM TBLROLES";
+                DataTable Dt = new DataTable();
+                Dt = AccesoDatos.EjecutarConsulta(sententcia);
+                return Dt;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        
+        public DataTable ConsultaRol(int id)
         {
             string sentencia = string.Empty;
             try
             {
-                sentencia = "SELECT * FROM TBLCATEGORIA_PROD";
+                sentencia = $"SELECT * FROM TBLROLES WHERE IdRolEmpleado = {id}";
                 DataTable Dt = new DataTable();
                 Dt = AccesoDatos.EjecutarConsulta(sentencia);
                 return Dt;
@@ -36,12 +51,12 @@ namespace Capa_LogicaDeNegocios
             }
         }
 
-        public DataTable ConsultarCategoria(int IdCategoria) 
+        public DataTable FiltrarRol(string Filtro)
         {
             string sentencia = string.Empty;
             try
             {
-                sentencia = $"SELECT * FROM TBLCATEGORIA_PROD WHERE IdCategoria = {IdCategoria}";
+                sentencia = $"SELECT * FROM TBLROLES WHERE StrDescripcion LIKE  '%{Filtro}%'";
                 DataTable Dt = new DataTable();
                 Dt = AccesoDatos.EjecutarConsulta(sentencia);
                 return Dt;
@@ -52,60 +67,37 @@ namespace Capa_LogicaDeNegocios
             }
         }
 
-        public DataTable FiltrarEmpleado(string filtro)
-        {
-            string sentencia = string.Empty;
-            try
-            {
-                sentencia = $"SELECT * FROM TBLCATEGORIA_PROD WHERE StrDescripcion LIKE '%{filtro}%' ";
-                DataTable Dt = new DataTable();
-                Dt = AccesoDatos.EjecutarConsulta(sentencia);
-                return Dt;
-            }
-            catch (Exception)
-            {
-                return null;
-            }
-        }
-
-        public string EliminarCategoria()
+        public string EliminarRol()
         {
             string mensaje = string.Empty;
             try
             {
                 List<Cls_Parametros> Lst = new List<Cls_Parametros>();
-                Lst.Add(new Cls_Parametros("@IdCategoria", C_IdCategoria));
-                mensaje = AccesoDatos.EjecutarProcedimiento("Eliminar_CategoriaProducto", Lst);
+                Lst.Add(new Cls_Parametros("@IdRolEmpleado", C_IdRolEmpleado));
+                mensaje = AccesoDatos.EjecutarProcedimiento("eliminar_Rol", Lst);
             }
             catch (Exception ex)
             {
-                mensaje = "Falló Borrando la Categoria " + ex.Message;
+                mensaje = "Falló Borrando el Rol " + ex.Message;
             }
-
             return mensaje;
         }
 
-        public string ActualizarCategoria()
+        public string ActualizarRol()
         {
             string mensaje = string.Empty;
             try
             {
                 List<Cls_Parametros> Lst = new List<Cls_Parametros>();
-                Lst.Add(new Cls_Parametros("@IdCategoria", C_IdCategoria));
+                Lst.Add(new Cls_Parametros("@IdRolEmpleado", C_IdRolEmpleado));
                 Lst.Add(new Cls_Parametros("@StrDescripcion", C_StrDescripcion));
-                Lst.Add(new Cls_Parametros("@DtmFechaModifica", DateTime.Now.Date.ToString("yyyy-MM-dd HH:mm:ss")));
-                Lst.Add(new Cls_Parametros("@StrUsuarioModifico", C_StrUsuarioModifico));
-                mensaje = AccesoDatos.EjecutarProcedimiento("actualizar_CategoriaProducto", Lst);
+                mensaje = AccesoDatos.EjecutarProcedimiento("actualizar_Rol", Lst);
             }
             catch (Exception ex)
             {
-                mensaje = "Fallo la Actualización Categoria " + ex.Message;
+                mensaje = "Fallo Actualizando el Rol " + ex.Message;
             }
-
             return mensaje;
         }
-
-
-
     }
 }

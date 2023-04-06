@@ -66,9 +66,9 @@ namespace Pantallas_Sistema_Facturacion
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            frmEmpleados Empleado = new frmEmpleados();
-            Empleado.IdEmpleado = 0;
-            Empleado.ShowDialog();
+            frmEmpleados frmEmpleado = new frmEmpleados();
+            frmEmpleado.IdEmpleado = 0;
+            frmEmpleado.ShowDialog();
             LLenar_Grid();
         }
 
@@ -79,10 +79,9 @@ namespace Pantallas_Sistema_Facturacion
                 int posActual = dgEmpleados.CurrentRow.Index;
                 if (MessageBox.Show($"Seguro de borrar al empleado {dgEmpleados[1, posActual].Value.ToString()}", "COMFIRMACION", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    int IdEmpleado = Convert.ToInt32(dgEmpleados[0, posActual].Value.ToString());
-                    string Sentencia = $"Exec Eliminar_Empleado '{IdEmpleado}'";
-                    //string Mensaje = accesoDatos.EjecutarComando(Sentencia);
-                    //MessageBox.Show(Mensaje);
+                    Empleado.C_IdEmpleado = Convert.ToInt32(dgEmpleados[0, posActual].Value.ToString());
+                    string mensaje = Empleado.EliminarEmpleado();
+                    MessageBox.Show(mensaje);
                     LLenar_Grid();
 
                 }
@@ -90,9 +89,9 @@ namespace Pantallas_Sistema_Facturacion
             if (dgEmpleados.Columns[e.ColumnIndex].Name == "btnEditar")
             {
                 int posActual = dgEmpleados.CurrentRow.Index;
-                frmEmpleados Empleado = new frmEmpleados();
-                Empleado.IdEmpleado = int.Parse(dgEmpleados[0,posActual].Value.ToString());
-                Empleado.ShowDialog();
+                frmEmpleados frmEmpleado = new frmEmpleados();
+                frmEmpleado.IdEmpleado = int.Parse(dgEmpleados[0,posActual].Value.ToString());
+                frmEmpleado.ShowDialog();
                 LLenar_Grid();
             }
         }

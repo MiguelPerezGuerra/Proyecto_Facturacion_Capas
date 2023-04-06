@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MaterialSkin;
 using MaterialSkin.Controls;
+using Capa_LogicaDeNegocios;
 
 namespace Pantallas_Sistema_Facturacion
 {
@@ -20,10 +21,21 @@ namespace Pantallas_Sistema_Facturacion
             InitializeComponent();
         }
         public int IdCategoria { get; set; }
-        DataTable DataTable = new DataTable();
-        //AccesoDatos accesoDatos = new AccesoDatos();
+        DataTable Dt = new DataTable();
+        Cls_Categoria_Prod Categoria = new Cls_Categoria_Prod();
 
         private void LLenarCategoria()
+        {
+            Dt = Categoria.ConsultarCategoria(IdCategoria);
+            if (Dt.Rows.Count > 0 )
+            {
+                foreach (DataRow row in Dt.Rows)
+                {
+                    txtCategoria.Text = row[1].ToString();
+                }
+            }
+        }
+        private void frmEditarCategoria_Load(object sender, EventArgs e)
         {
             if (IdCategoria == 0)
             {
@@ -32,18 +44,8 @@ namespace Pantallas_Sistema_Facturacion
             else
             {
                 lblTitulo.Text = "MODIFICAR CATEGORIA";
-                string Sentencia = $"SELECT IdCategoria, StrDescripcion FROM TBLCATEGORIA_PROD WHERE IdCategoria = {IdCategoria}";
-                //DataTable = accesoDatos.EjecutarComandoDatos(Sentencia);
-                foreach (DataRow dr in DataTable.Rows)
-                {
-                    
-                    txtCategoria.Text = dr[1].ToString();
-                }
+                LLenarCategoria();
             }
-        }
-        private void frmEditarCategoria_Load(object sender, EventArgs e)
-        {
-            LLenarCategoria();
         }
 
         private bool Validar()
@@ -52,31 +54,24 @@ namespace Pantallas_Sistema_Facturacion
             if (string.IsNullOrEmpty(txtCategoria.Text) || string.IsNullOrWhiteSpace(txtCategoria.Text))
             {
                 MensajeError.SetError(txtCategoria, "Debe ingresar el Nombre de Categoria");
+                txtCategoria.Focus();
+                errorCampos = false;
             }
             else { MensajeError.SetError(txtCategoria, ""); }
 
             return errorCampos;
         }
 
-        public bool Guardar()
+        public void Guardar()
         {
-            Boolean Actualizado = false;
+            string mensaje = string.Empty;
             if (Validar())
             {
-                try
-                {
-                    string Sentencia = $"Exec actualizar_CategoriaProd {IdCategoria}, '{txtCategoria.Text}', '{DateTime.Now.Date.ToString("yyyy-MM-dd HH:mm:ss")}', 'Javier' ";
-                    //MessageBox.Show(accesoDatos.EjecutarComando(Sentencia));
-                    Actualizado = true;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Falló inserción: " + ex);
-                    Actualizado = false;
-                }
-
+                Categoria.C_IdCategoria = IdCategoria;
+                Categoria.C_StrDescripcion = txtCategoria.Text;
+                mensaje = Categoria.ActualizarCategoria();
+                MessageBox.Show(mensaje);
             }
-            return Actualizado;
         }
 
 

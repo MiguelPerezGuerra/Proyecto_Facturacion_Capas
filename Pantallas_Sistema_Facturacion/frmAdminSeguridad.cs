@@ -18,7 +18,7 @@ namespace Pantallas_Sistema_Facturacion
             InitializeComponent();
         }
 
-        DataTable DataTable = new DataTable();
+        DataTable Dt = new DataTable();
         Cls_Seguridad SeguridadEmpleado = new Cls_Seguridad();
         private void LLenarComboEmpleados()
         {
@@ -33,17 +33,17 @@ namespace Pantallas_Sistema_Facturacion
         public void Consultar()
         {
             int IdEmpleado = int.Parse(cboEmpleado.SelectedValue.ToString());
-            DataTable = SeguridadEmpleado.ConsultaSeguridadEmpleado(IdEmpleado); // consultamos el empleado con un idempleado.
-            if (DataTable.Rows.Count > 0)
+            Dt = SeguridadEmpleado.ConsultaSeguridadEmpleado(IdEmpleado); // consultamos el empleado con un idempleado.
+            if (Dt.Rows.Count > 0)
             {
-                txtUsuario.Text = DataTable.Rows[0].ToString();
-                txtClave.Text = DataTable.Rows[1].ToString();
+                txtUsuario.Text = Dt.Rows[0].ToString();
+                txtClave.Text = Dt.Rows[1].ToString();
             }
             else
             {
-                MessageBox.Show("No se le ha asignado usuario y clave a este Empleado");
                 txtUsuario.Text = string.Empty;
                 txtClave.Text = string.Empty;
+                MessageBox.Show("No se le ha asignado usuario y clave a este Empleado");
             }
         }
 
@@ -150,15 +150,6 @@ namespace Pantallas_Sistema_Facturacion
         {
             Guardar();
         }
-
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            // verificamos si desea cerrar la ventana
-            DialogResult Rta;
-            Rta = MessageBox.Show("Desea salir de la edicion?", "MENSAJE DE ADVERTENCIA", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-            if (Rta == DialogResult.OK) { this.Close(); }
-        }
-
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             Eliminar();
@@ -168,5 +159,15 @@ namespace Pantallas_Sistema_Facturacion
         {
             Consultar();
         }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            // verificamos si desea cerrar la ventana
+            DialogResult Rta;
+            Rta = MessageBox.Show("Desea salir de la edicion?", "MENSAJE DE ADVERTENCIA", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if (Rta == DialogResult.OK) { this.Close(); }
+        }
+
+        
     }
 }

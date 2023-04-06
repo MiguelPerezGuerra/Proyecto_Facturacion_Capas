@@ -63,7 +63,7 @@ namespace Capa_LogicaDeNegocios
                 //adicinamos el parametro que permite indicar el idempleado que borraremos. Contiene el nombre y el valor del parametro.
                 Lst.Add(new Cls_Parametros("@IdEmpleado", C_IdEmpleado));
                 // ejecutamos al procedimiento y pasamos lst con los parametros y valores.
-                mensaje = AccesoDatos.EjecutarProcedimineto("Eliminar_Seguridad", Lst);
+                mensaje = AccesoDatos.EjecutarProcedimiento("Eliminar_Seguridad", Lst);
             }
             catch (Exception ex)
             {
@@ -88,7 +88,7 @@ namespace Capa_LogicaDeNegocios
                 Lst.Add(new Cls_Parametros("@StrUsuarioModifico", C_StrUsuarioModifico));
 
                 // ejecutamos el procedimiento y pasamos lst con todos los parametros.
-                mensaje = AccesoDatos.EjecutarProcedimineto("actualizar_Seguridad", Lst);
+                mensaje = AccesoDatos.EjecutarProcedimiento("actualizar_Seguridad", Lst);
             }
             catch (Exception ex)
             {

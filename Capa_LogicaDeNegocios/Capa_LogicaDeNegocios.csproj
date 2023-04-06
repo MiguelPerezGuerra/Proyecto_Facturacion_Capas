@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Cls_Categoria_Prod.cs" />
     <Compile Include="Cls_Empleados.cs" />
+    <Compile Include="Cls_Roles.cs" />
     <Compile Include="Cls_Seguridad.cs" />
     <Compile Include="Validar_Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
