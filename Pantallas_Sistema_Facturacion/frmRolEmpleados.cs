@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Capa_LogicaDeNegocios;
 
 namespace Pantallas_Sistema_Facturacion
 {
@@ -18,25 +19,19 @@ namespace Pantallas_Sistema_Facturacion
         }
 
         public int IdRol { get; set; }
-        DataTable DataTable = new DataTable();
-        //AccesoDatos accesoDatos = new AccesoDatos();
+        DataTable Dt = new DataTable();
+        Cls_Roles Roles = new Cls_Roles();
 
         private void LLenarRol()
         {
-            if (IdRol == 0)
+            Dt = Roles.ConsultaRol(IdRol);
+            if (Dt.Rows.Count > 0)
             {
-                lblTitulo.Text = "INGRESE NUEVO ROL DE EMPLEADO";
-            }
-            else
-            {
-                lblTitulo.Text = "MODIFICAR ROL DE EMPLEADO";
-                String Sentencia = $"SELECT * FROM TBLROLES WHERE IdRolEmpleado = '{IdRol}' ";
-                //DataTable = accesoDatos.EjecutarComandoDatos(Sentencia);
-                foreach (DataRow row in DataTable.Rows) 
+                foreach (DataRow row in Dt.Rows)
                 {
                     txtRol.Text = row[1].ToString();
                 }
-            }
+            }       
         }
 
         private bool Validar()
@@ -45,60 +40,39 @@ namespace Pantallas_Sistema_Facturacion
             if (string.IsNullOrEmpty(txtRol.Text) || string.IsNullOrWhiteSpace(txtRol.Text))
             {
                 MensajeErrror.SetError(txtRol, "Debe ingresar el Nombre del Rol");
+                txtRol.Focus();
+                errorCampos = false;
             }
             else { MensajeErrror.SetError(txtRol, ""); }
 
             return errorCampos;
         }
 
-        public bool Guardar()
+        public void Guardar()
         {
-            Boolean Actualizado = false;
+            string mensaje = string.Empty;
 
-            if (IdRol == 0)
+            if (Validar())
             {
-                try
-                {
-                    if (Validar())
-                    {
-                        String Sentencia = $"INSERT INTO TBLROLES VALUES ('{txtRol.Text}') ";
-                       // MessageBox.Show(accesoDatos.EjecutarComando(Sentencia));
-                        Actualizado = true;
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Fallo inserción: " + ex);
-                    Actualizado = false;
-                }
-
+                Roles.C_IdRolEmpleado = IdRol;
+                Roles.C_StrDescripcion = txtDesRol.Text;
+                mensaje = Roles.ActualizarRol();
+                MessageBox.Show(mensaje);
             }
-            else
-            {
-                try
-                {
-                    if (Validar())
-                    {
-                        String Sentencia = $"UPDATE TBLROLES SET StrDescripcion = '{txtRol.Text}' WHERE IdRolEmpleado = '{IdRol}' ";
-                       // MessageBox.Show(accesoDatos.EjecutarComando(Sentencia));
-                        Actualizado = true;
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Fallo inserción: " + ex);
-                    Actualizado = false;
-                }
-            }
-            
-
-            return Actualizado;
 
         }
 
         private void frmEditarRol_Load(object sender, EventArgs e)
         {
-           LLenarRol();
+            if (IdRol == 0)
+            {
+                lblTitulo.Text = "INGRESE NUEVO ROL DE EMPLEADO";
+            }
+            else
+            {
+                lblTitulo.Text = "MODIFICAR ROL DE EMPLEADO";
+                LLenarRol();
+            }
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)

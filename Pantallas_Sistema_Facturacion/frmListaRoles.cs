@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Capa_LogicaDeNegocios;
 
 namespace Pantallas_Sistema_Facturacion
 {
@@ -16,14 +17,24 @@ namespace Pantallas_Sistema_Facturacion
         {
             InitializeComponent();
         }
-        DataTable DataTable = new DataTable();
-        //AccesoDatos accesoDatos = new AccesoDatos();
+        DataTable Dt = new DataTable();
+        Cls_Roles Roles = new Cls_Roles();
         public void LLenarGrid()
         {
             dgRol.Rows.Clear();
-            string Sentencia = "SELECT * FROM TBLROLES";
-            //DataTable = accesoDatos.EjecutarComandoDatos(Sentencia);
-            foreach (DataRow row in DataTable.Rows) { dgRol.Rows.Add(row[0], row[1]); }
+            Dt = Roles.ConsultaRol();
+            if (Dt.Rows.Count > 0)
+            {
+                foreach (DataRow row in Dt.Rows) 
+                { 
+                    dgRol.Rows.Add(row[0], row[1]); 
+                }
+            }
+            else 
+            { 
+                MessageBox.Show("No se encontraron Registros"); 
+            }
+            
 
         }
         private void frmListaRoles_Load(object sender, EventArgs e)
@@ -36,19 +47,29 @@ namespace Pantallas_Sistema_Facturacion
             if(!string.IsNullOrEmpty(txtBuscar.Text) || !string.IsNullOrWhiteSpace(txtBuscar.Text))
             {
                 dgRol.Rows.Clear();
-                String Sentencia = $"SELECT * FROM TBLROLES WHERE StrDescripcion LIKE '%{txtBuscar.Text}%' ";
-               // DataTable = accesoDatos.EjecutarComandoDatos(Sentencia);
-                foreach (DataRow row in DataTable.Rows) { dgRol.Rows.Add(row[0], row[1]); }
+                Dt = Roles.FiltrarRol(txtBuscar.Text);
+                if (Dt.Rows.Count > 0)
+                {
+                    foreach (DataRow row in Dt.Rows) { dgRol.Rows.Add(row[0], row[1]); }
+                }
+                else
+                {
+                    MessageBox.Show("No se encontraron registros para la busqueda Solicitada");
+                    LLenarGrid();
+                }
+                
             }
             else { LLenarGrid();}
+
+            txtBuscar.Text = string.Empty;
             
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            frmRolEmpleados Rol = new frmRolEmpleados();
-            Rol.IdRol = 0;
-            Rol.ShowDialog();
+            frmRolEmpleados frmRol = new frmRolEmpleados();
+            frmRol.IdRol = 0;
+            frmRol.ShowDialog();
             LLenarGrid();
         }
 
@@ -59,19 +80,18 @@ namespace Pantallas_Sistema_Facturacion
                 int posActual = dgRol.CurrentRow.Index;
                 if (MessageBox.Show($"Seguro de Borar el Rol {dgRol[1, posActual].Value.ToString()}", "COMFIRMACION", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    int IdRol = Convert.ToInt32(dgRol[0,posActual].Value.ToString());
-                    String Sentencia = $"DELETE TBLROLES WHERE IdRolEmpleado = {IdRol}";
-                   // string Mensaje = accesoDatos.EjecutarComando(Sentencia);
-                    //MessageBox.Show(Mensaje);
+                    Roles.C_IdRolEmpleado = Convert.ToInt32(dgRol[0,posActual].Value.ToString());
+                    string Mensaje = Roles.EliminarRol();
+                    MessageBox.Show(Mensaje);
                     LLenarGrid();
                 }
             }
             if (dgRol.Columns[e.ColumnIndex].Name == "btnEditar")
             {
                 int posActual = dgRol.CurrentRow.Index;
-                frmRolEmpleados Rol = new frmRolEmpleados();
-                Rol.IdRol = int.Parse(dgRol[0, posActual].Value.ToString());
-                Rol.ShowDialog();
+                frmRolEmpleados frmRol = new frmRolEmpleados();
+                frmRol.IdRol = int.Parse(dgRol[0, posActual].Value.ToString());
+                frmRol.ShowDialog();
                 LLenarGrid();
             }
         }
