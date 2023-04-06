@@ -40,7 +40,7 @@ namespace Capa_LogicaDeNegocios
             string sentencia = string.Empty;
             try
             {
-                sentencia = $"SELECT StrUsuario, StrClave FROM TBLSEGURIDAD WHERE IdEmpleado = '{IdEmpleado}'";
+                sentencia = $"SELECT StrUsuario,StrClave FROM TBLSEGURIDAD WHERE IdEmpleado = '{IdEmpleado}'";
                 DataTable Dt = new DataTable() ;
                 Dt = AccesoDatos.EjecutarConsulta(sentencia );
                 return Dt;
@@ -84,7 +84,7 @@ namespace Capa_LogicaDeNegocios
                 Lst.Add(new Cls_Parametros("@IdEmpleado", C_IdEmpleado));
                 Lst.Add(new Cls_Parametros("@StrUsuario", C_StrUsuario));
                 Lst.Add(new Cls_Parametros("@StrClave", C_StrClave));
-                Lst.Add(new Cls_Parametros("@DtmFechaModifica", DateTime.Now));
+                Lst.Add(new Cls_Parametros("@DtmFechaModifica", DateTime.Now.Date.ToString("yyyy-MM-dd HH:mm:ss")));
                 Lst.Add(new Cls_Parametros("@StrUsuarioModifico", C_StrUsuarioModifico));
 
                 // ejecutamos el procedimiento y pasamos lst con todos los parametros.

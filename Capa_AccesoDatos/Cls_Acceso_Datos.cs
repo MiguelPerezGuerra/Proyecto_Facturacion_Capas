@@ -39,7 +39,7 @@ namespace Capa_AccesoDatos
     {
         SqlConnection Conexion; // se define la variable para la conexion de tipo sqlconnection.
         SqlCommand Cmd; // se defive la variable para realizar comandos en la DB.
-        SqlDataReader LectorDatos = null; // utilizados para leer datos, suele estar acompañado de un objeto Command que contiene la consulta.
+        SqlDataReader LectorDatos; // utilizados para leer datos, suele estar acompañado de un objeto Command que contiene la consulta.
         SqlDataAdapter Da; // se utiliza como un puente entre DataSet y SQL Server para recuperaa y guardar datos.        
         DataTable Dt; // representa una tabla de datos relacionales en memoria.
 
@@ -49,8 +49,8 @@ namespace Capa_AccesoDatos
             try
             {
                 // creamos un objeto de tipo conexion a la base de datos y se pasa como parámetro la cadena de conexion.
-                Conexion = new SqlConnection("Data Source=[];Initial Catalog=[];Integrate Security=True");
-                Conexion.Open(); // invocamos el metodo para abrir la base de datos.
+                Conexion = new SqlConnection("Data Source=LAPTOP-MIGUEL;Initial Catalog=PractivaDB;Integrated Security=True");
+                Conexion.Open();
             }
             catch (Exception ex)
             {
@@ -160,9 +160,9 @@ namespace Capa_AccesoDatos
                 AbrirBD();
                 Da = new SqlDataAdapter(cmd, Conexion);
                 Dt = new DataTable();
-                Da.Fill(Dt);
+                Da.Fill(this.Dt);
                 CerrarBD();
-                return Dt;
+                return this.Dt;
             }
             catch (Exception)
             {

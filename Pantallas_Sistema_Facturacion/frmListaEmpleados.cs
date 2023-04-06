@@ -28,7 +28,7 @@ namespace Pantallas_Sistema_Facturacion
             {
                 foreach (DataRow row in Dt.Rows) // esta instruccion permite recorrer todas las filas retornadas.
                 {
-                    dgEmpleados.Rows.Add(row[0].ToString(), row[1].ToString(), row[2].ToString(), row[3].ToString(), row[4].ToString()); // llenamos el grid.
+                    dgEmpleados.Rows.Add(row[0].ToString(), row[1].ToString(), row[2].ToString(), row[4].ToString(), row[5].ToString(), row[6].ToString(), row[7].ToString(), row[8].ToString()); // llenamos el grid.
                 }
             }
             else
@@ -50,7 +50,10 @@ namespace Pantallas_Sistema_Facturacion
 
                 if (Dt.Rows.Count > 0) // si retorna valores los recorremos para llenar el gridview.
                 {
-                    foreach (DataRow dr in Dt.Rows) { dgEmpleados.Rows.Add(dr[0], dr[1], dr[2], dr[3], dr[4], dr[5], dr[6], dr[7]); }
+                    foreach (DataRow row in Dt.Rows) 
+                    { 
+                        dgEmpleados.Rows.Add(row[0].ToString(), row[1].ToString(), row[2].ToString(), row[4].ToString(), row[5].ToString(), row[6].ToString(), row[7].ToString(), row[8].ToString()); 
+                    }
                 }
                 else
                 {

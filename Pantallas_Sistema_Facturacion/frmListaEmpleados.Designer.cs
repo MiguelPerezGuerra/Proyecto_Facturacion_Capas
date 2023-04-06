@@ -54,9 +54,10 @@
             // pnlButtonNuevo
             // 
             this.pnlButtonNuevo.Controls.Add(this.btnNuevo);
-            this.pnlButtonNuevo.Location = new System.Drawing.Point(819, 117);
+            this.pnlButtonNuevo.Location = new System.Drawing.Point(1092, 144);
+            this.pnlButtonNuevo.Margin = new System.Windows.Forms.Padding(4);
             this.pnlButtonNuevo.Name = "pnlButtonNuevo";
-            this.pnlButtonNuevo.Size = new System.Drawing.Size(74, 36);
+            this.pnlButtonNuevo.Size = new System.Drawing.Size(99, 44);
             this.pnlButtonNuevo.TabIndex = 13;
             // 
             // btnNuevo
@@ -67,10 +68,11 @@
             this.btnNuevo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnNuevo.Icon = null;
             this.btnNuevo.Location = new System.Drawing.Point(0, 0);
+            this.btnNuevo.Margin = new System.Windows.Forms.Padding(4);
             this.btnNuevo.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Primary = true;
-            this.btnNuevo.Size = new System.Drawing.Size(74, 36);
+            this.btnNuevo.Size = new System.Drawing.Size(99, 44);
             this.btnNuevo.TabIndex = 3;
             this.btnNuevo.Text = "NUEVO";
             this.btnNuevo.UseVisualStyleBackColor = true;
@@ -79,9 +81,10 @@
             // pnlButton
             // 
             this.pnlButton.Controls.Add(this.btnSalir);
-            this.pnlButton.Location = new System.Drawing.Point(819, 527);
+            this.pnlButton.Location = new System.Drawing.Point(1092, 649);
+            this.pnlButton.Margin = new System.Windows.Forms.Padding(4);
             this.pnlButton.Name = "pnlButton";
-            this.pnlButton.Size = new System.Drawing.Size(74, 36);
+            this.pnlButton.Size = new System.Drawing.Size(99, 44);
             this.pnlButton.TabIndex = 12;
             // 
             // btnSalir
@@ -92,10 +95,11 @@
             this.btnSalir.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnSalir.Icon = null;
             this.btnSalir.Location = new System.Drawing.Point(0, 0);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(4);
             this.btnSalir.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Primary = true;
-            this.btnSalir.Size = new System.Drawing.Size(74, 36);
+            this.btnSalir.Size = new System.Drawing.Size(99, 44);
             this.btnSalir.TabIndex = 4;
             this.btnSalir.Text = "SALIR";
             this.btnSalir.UseVisualStyleBackColor = true;
@@ -115,10 +119,11 @@
             this.strFechaRetiro,
             this.btnEditar,
             this.btnBorrar});
-            this.dgEmpleados.Location = new System.Drawing.Point(110, 175);
+            this.dgEmpleados.Location = new System.Drawing.Point(147, 215);
+            this.dgEmpleados.Margin = new System.Windows.Forms.Padding(4);
             this.dgEmpleados.Name = "dgEmpleados";
             this.dgEmpleados.RowHeadersWidth = 51;
-            this.dgEmpleados.Size = new System.Drawing.Size(783, 346);
+            this.dgEmpleados.Size = new System.Drawing.Size(1044, 426);
             this.dgEmpleados.TabIndex = 11;
             this.dgEmpleados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgEmpleados_CellContentClick);
             // 
@@ -162,7 +167,7 @@
             this.strRol.HeaderText = "ROL";
             this.strRol.MinimumWidth = 6;
             this.strRol.Name = "strRol";
-            this.strRol.Width = 50;
+            this.strRol.Width = 40;
             // 
             // strFechaIngresoEmpleado
             // 
@@ -205,11 +210,12 @@
             this.btnBuscar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnBuscar.Depth = 0;
             this.btnBuscar.Icon = null;
-            this.btnBuscar.Location = new System.Drawing.Point(642, 117);
+            this.btnBuscar.Location = new System.Drawing.Point(856, 144);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscar.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Primary = true;
-            this.btnBuscar.Size = new System.Drawing.Size(74, 36);
+            this.btnBuscar.Size = new System.Drawing.Size(88, 36);
             this.btnBuscar.TabIndex = 10;
             this.btnBuscar.Text = "BUSCAR";
             this.btnBuscar.UseVisualStyleBackColor = true;
@@ -219,7 +225,8 @@
             // 
             this.txtBuscar.Depth = 0;
             this.txtBuscar.Hint = "Buscar Empleado";
-            this.txtBuscar.Location = new System.Drawing.Point(110, 126);
+            this.txtBuscar.Location = new System.Drawing.Point(147, 155);
+            this.txtBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.txtBuscar.MaxLength = 32767;
             this.txtBuscar.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtBuscar.Name = "txtBuscar";
@@ -227,7 +234,7 @@
             this.txtBuscar.SelectedText = "";
             this.txtBuscar.SelectionLength = 0;
             this.txtBuscar.SelectionStart = 0;
-            this.txtBuscar.Size = new System.Drawing.Size(526, 23);
+            this.txtBuscar.Size = new System.Drawing.Size(701, 28);
             this.txtBuscar.TabIndex = 9;
             this.txtBuscar.TabStop = false;
             this.txtBuscar.UseSystemPasswordChar = false;
@@ -238,18 +245,19 @@
             this.lblTitulo.Depth = 0;
             this.lblTitulo.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblTitulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblTitulo.Location = new System.Drawing.Point(388, 50);
+            this.lblTitulo.Location = new System.Drawing.Point(517, 62);
+            this.lblTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitulo.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(247, 19);
+            this.lblTitulo.Size = new System.Drawing.Size(307, 24);
             this.lblTitulo.TabIndex = 8;
             this.lblTitulo.Text = "ADMINISTRACION DE EMPLEADOS";
             // 
             // frmListaEmpleados
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1000, 586);
+            this.ClientSize = new System.Drawing.Size(1333, 721);
             this.Controls.Add(this.pnlButtonNuevo);
             this.Controls.Add(this.pnlButton);
             this.Controls.Add(this.dgEmpleados);
@@ -257,6 +265,7 @@
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.lblTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmListaEmpleados";
             this.Text = "frmListaEmpleados";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

@@ -1,0 +1,9 @@
+C:\Users\Miguel Pérez\Documents\Repository\PascualBravo\FACTURACION_CAPAS_DISENO_MODERNO\Capa_LogicaDeNegocios\bin\Debug\Capa_LogicaDeNegocios.dll
+C:\Users\Miguel Pérez\Documents\Repository\PascualBravo\FACTURACION_CAPAS_DISENO_MODERNO\Capa_LogicaDeNegocios\bin\Debug\Capa_LogicaDeNegocios.pdb
+C:\Users\Miguel Pérez\Documents\Repository\PascualBravo\FACTURACION_CAPAS_DISENO_MODERNO\Capa_LogicaDeNegocios\bin\Debug\Capa_AccesoDatos.dll
+C:\Users\Miguel Pérez\Documents\Repository\PascualBravo\FACTURACION_CAPAS_DISENO_MODERNO\Capa_LogicaDeNegocios\bin\Debug\Capa_AccesoDatos.pdb
+C:\Users\Miguel Pérez\Documents\Repository\PascualBravo\FACTURACION_CAPAS_DISENO_MODERNO\Capa_LogicaDeNegocios\obj\Debug\Capa_LogicaDeNegocios.csproj.AssemblyReference.cache
+C:\Users\Miguel Pérez\Documents\Repository\PascualBravo\FACTURACION_CAPAS_DISENO_MODERNO\Capa_LogicaDeNegocios\obj\Debug\Capa_LogicaDeNegocios.csproj.CoreCompileInputs.cache
+C:\Users\Miguel Pérez\Documents\Repository\PascualBravo\FACTURACION_CAPAS_DISENO_MODERNO\Capa_LogicaDeNegocios\obj\Debug\Capa_LogicaDeNegocios.csproj.CopyComplete
+C:\Users\Miguel Pérez\Documents\Repository\PascualBravo\FACTURACION_CAPAS_DISENO_MODERNO\Capa_LogicaDeNegocios\obj\Debug\Capa_LogicaDeNegocios.dll
+C:\Users\Miguel Pérez\Documents\Repository\PascualBravo\FACTURACION_CAPAS_DISENO_MODERNO\Capa_LogicaDeNegocios\obj\Debug\Capa_LogicaDeNegocios.pdb

@@ -27,7 +27,7 @@ namespace Pantallas_Sistema_Facturacion
             {
                 foreach (DataRow row in Dt.Rows) 
                 { 
-                    dgRol.Rows.Add(row[0], row[1]); 
+                    dgRol.Rows.Add(row[0].ToString(), row[1].ToString()); 
                 }
             }
             else 

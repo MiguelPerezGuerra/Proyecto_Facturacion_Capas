@@ -15,15 +15,15 @@ namespace Capa_LogicaDeNegocios
         public string C_StrClave { get; set; }
         public int C_IdEmpleado { get; set; }
 
+        Cls_Acceso_Datos Acceso = new Cls_Acceso_Datos(); // creamos un objeto con la clase acceso a datos.
+        DataTable Dt = new DataTable();
+
         public void ValidarUsuario() // metodo que valida el usuario, consulta en la BD el usuario y la clave.
         {
             try
             {
                 string sentencia = $"SELECT IdEmpleado FROM TBLSEGURIDAD WHERE StrUsuario = '{C_StrUsuario}' AND StrClave = '{C_StrClave}'";
-                DataTable Dt = new DataTable();
-                Cls_Acceso_Datos Acceso = new Cls_Acceso_Datos(); // creamos un objeto con la clase acceso a datos.
                 Dt = Acceso.EjecutarConsulta(sentencia);
-
                 foreach (DataRow row in Dt.Rows) { C_IdEmpleado = int.Parse(row[0].ToString()); } // acutalizamos el nro del id del cliente que se encontro en la BD.
             }
             catch (Exception ex)

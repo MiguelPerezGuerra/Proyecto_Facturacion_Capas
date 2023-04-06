@@ -36,8 +36,12 @@ namespace Pantallas_Sistema_Facturacion
             Dt = SeguridadEmpleado.ConsultaSeguridadEmpleado(IdEmpleado); // consultamos el empleado con un idempleado.
             if (Dt.Rows.Count > 0)
             {
-                txtUsuario.Text = Dt.Rows[0].ToString();
-                txtClave.Text = Dt.Rows[1].ToString();
+                foreach (DataRow row in Dt.Rows)
+                {
+                    txtUsuario.Text = row[0].ToString();
+                    txtClave.Text = row[1].ToString();
+                }
+                
             }
             else
             {

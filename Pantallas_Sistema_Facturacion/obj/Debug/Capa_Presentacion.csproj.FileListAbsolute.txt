@@ -28,3 +28,7 @@ C:\Users\Miguel Pérez\Documents\Repository\PascualBravo\FACTURACION_CAPAS_DISEN
 C:\Users\Miguel Pérez\Documents\Repository\PascualBravo\FACTURACION_CAPAS_DISENO_MODERNO\Pantallas_Sistema_Facturacion\bin\Debug\Pantallas_Sistema_Facturacion.pdb
 C:\Users\Miguel Pérez\Documents\Repository\PascualBravo\FACTURACION_CAPAS_DISENO_MODERNO\Pantallas_Sistema_Facturacion\bin\Debug\MaterialSkin.dll
 C:\Users\Miguel Pérez\Documents\Repository\PascualBravo\FACTURACION_CAPAS_DISENO_MODERNO\Pantallas_Sistema_Facturacion\obj\Debug\Capa_Presentacion.csproj.CopyComplete
+C:\Users\Miguel Pérez\Documents\Repository\PascualBravo\FACTURACION_CAPAS_DISENO_MODERNO\Pantallas_Sistema_Facturacion\bin\Debug\Capa_LogicaDeNegocios.dll
+C:\Users\Miguel Pérez\Documents\Repository\PascualBravo\FACTURACION_CAPAS_DISENO_MODERNO\Pantallas_Sistema_Facturacion\bin\Debug\Capa_AccesoDatos.dll
+C:\Users\Miguel Pérez\Documents\Repository\PascualBravo\FACTURACION_CAPAS_DISENO_MODERNO\Pantallas_Sistema_Facturacion\bin\Debug\Capa_LogicaDeNegocios.pdb
+C:\Users\Miguel Pérez\Documents\Repository\PascualBravo\FACTURACION_CAPAS_DISENO_MODERNO\Pantallas_Sistema_Facturacion\bin\Debug\Capa_AccesoDatos.pdb

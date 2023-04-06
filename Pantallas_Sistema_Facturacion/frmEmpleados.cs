@@ -140,8 +140,8 @@ namespace Pantallas_Sistema_Facturacion
                 Empleado.C_StrTelefono = txtTelEmpleado.Text;
                 Empleado.C_StrEmail = txtEmailEmpleado.Text;
                 Empleado.C_IdRolEmpleado = int.Parse(cboRol.SelectedValue.ToString());
-                Empleado.C_DtmIngreso = dtpFIngreso.Text;
-                Empleado.C_DtmRetiro = dtpFRetiro.Text;
+                Empleado.C_DtmIngreso = dtpFIngreso.Value.Date.ToString("yyyy-MM-dd HH:mm:ss");
+                Empleado.C_DtmRetiro = dtpFRetiro.Value.Date.ToString("yyyy-MM-dd HH:mm:ss");
                 Empleado.C_StrDatosAdicionales = txtDatosAdicionales.Text;
                 Empleado.C_StrUsuarioModifico = "Javier";
                 mensaje = Empleado.ActualizarEmpleado(); // invocamos el metodo de actualizar informacion del empleado.

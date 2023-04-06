@@ -55,7 +55,7 @@ namespace Pantallas_Sistema_Facturacion
             if (Validar())
             {
                 Roles.C_IdRolEmpleado = IdRol;
-                Roles.C_StrDescripcion = txtDesRol.Text;
+                Roles.C_StrDescripcion = txtRol.Text;
                 mensaje = Roles.ActualizarRol();
                 MessageBox.Show(mensaje);
             }
