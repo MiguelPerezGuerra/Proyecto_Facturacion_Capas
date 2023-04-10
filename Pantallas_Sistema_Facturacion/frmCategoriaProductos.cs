@@ -69,6 +69,7 @@ namespace Pantallas_Sistema_Facturacion
             {
                 Categoria.C_IdCategoria = IdCategoria;
                 Categoria.C_StrDescripcion = txtCategoria.Text;
+                Categoria.C_StrUsuarioModifico = "Javier";
                 mensaje = Categoria.ActualizarCategoria();
                 MessageBox.Show(mensaje);
             }
