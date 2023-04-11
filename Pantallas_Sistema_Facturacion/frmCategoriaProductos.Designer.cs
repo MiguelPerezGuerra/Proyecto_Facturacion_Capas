@@ -53,23 +53,23 @@
             this.lblTitulo.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(58, 24);
-            this.lblTitulo.TabIndex = 0;
+            this.lblTitulo.TabIndex = 20;
             this.lblTitulo.Text = "Titulo";
             // 
             // txtIdCategoria
             // 
             this.txtIdCategoria.Location = new System.Drawing.Point(188, 81);
-            this.txtIdCategoria.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtIdCategoria.Margin = new System.Windows.Forms.Padding(4);
             this.txtIdCategoria.Name = "txtIdCategoria";
             this.txtIdCategoria.Size = new System.Drawing.Size(57, 22);
-            this.txtIdCategoria.TabIndex = 1;
+            this.txtIdCategoria.TabIndex = 9;
             // 
             // txtCategoria
             // 
             this.txtCategoria.Depth = 0;
             this.txtCategoria.Hint = "Nombre Categoria";
             this.txtCategoria.Location = new System.Drawing.Point(188, 129);
-            this.txtCategoria.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCategoria.Margin = new System.Windows.Forms.Padding(4);
             this.txtCategoria.MaxLength = 32767;
             this.txtCategoria.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtCategoria.Name = "txtCategoria";
@@ -78,7 +78,7 @@
             this.txtCategoria.SelectionLength = 0;
             this.txtCategoria.SelectionStart = 0;
             this.txtCategoria.Size = new System.Drawing.Size(345, 28);
-            this.txtCategoria.TabIndex = 3;
+            this.txtCategoria.TabIndex = 0;
             this.txtCategoria.TabStop = false;
             this.txtCategoria.UseSystemPasswordChar = false;
             // 
@@ -86,7 +86,7 @@
             // 
             this.panel1.Controls.Add(this.btnSalir);
             this.panel1.Location = new System.Drawing.Point(396, 314);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(137, 44);
             this.panel1.TabIndex = 16;
@@ -99,12 +99,12 @@
             this.btnSalir.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnSalir.Icon = null;
             this.btnSalir.Location = new System.Drawing.Point(0, 0);
-            this.btnSalir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(4);
             this.btnSalir.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Primary = true;
             this.btnSalir.Size = new System.Drawing.Size(137, 44);
-            this.btnSalir.TabIndex = 13;
+            this.btnSalir.TabIndex = 2;
             this.btnSalir.Text = "SALIR";
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
@@ -116,12 +116,12 @@
             this.btnActualizar.Depth = 0;
             this.btnActualizar.Icon = null;
             this.btnActualizar.Location = new System.Drawing.Point(188, 314);
-            this.btnActualizar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnActualizar.Margin = new System.Windows.Forms.Padding(4);
             this.btnActualizar.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Primary = true;
             this.btnActualizar.Size = new System.Drawing.Size(124, 36);
-            this.btnActualizar.TabIndex = 15;
+            this.btnActualizar.TabIndex = 1;
             this.btnActualizar.Text = "ACTUALIZAR";
             this.btnActualizar.UseVisualStyleBackColor = true;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
@@ -134,7 +134,7 @@
             this.panel2.Controls.Add(this.txtCategoria);
             this.panel2.Controls.Add(this.btnActualizar);
             this.panel2.Location = new System.Drawing.Point(121, 149);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(737, 407);
             this.panel2.TabIndex = 17;
@@ -151,7 +151,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.lblTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmCategoriaProductos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmCategoriaProductos";

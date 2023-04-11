@@ -34,7 +34,7 @@ namespace Pantallas_Sistema_Facturacion
         private void LLenarCampos()
         {
             DataTable = Empleado.ConsultaEmpleado(IdEmpleado); // consultamos el empleado con un idempleado especifico.
-            if (DataTable.Columns.Count > 0) // si retorna valores de consulta, asignamos los valores a los campos.
+            if (DataTable.Rows.Count > 0) // si retorna valores de consulta, asignamos los valores a los campos.
             {
                 foreach (DataRow dr in DataTable.Rows)
                 {

@@ -75,7 +75,7 @@
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Primary = true;
             this.btnSalir.Size = new System.Drawing.Size(137, 44);
-            this.btnSalir.TabIndex = 13;
+            this.btnSalir.TabIndex = 10;
             this.btnSalir.Text = "SALIR";
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
@@ -92,7 +92,7 @@
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Primary = true;
             this.btnActualizar.Size = new System.Drawing.Size(124, 36);
-            this.btnActualizar.TabIndex = 27;
+            this.btnActualizar.TabIndex = 9;
             this.btnActualizar.Text = "ACTUALIZAR";
             this.btnActualizar.UseVisualStyleBackColor = true;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
@@ -104,7 +104,7 @@
             this.txtDatosAdicionales.Multiline = true;
             this.txtDatosAdicionales.Name = "txtDatosAdicionales";
             this.txtDatosAdicionales.Size = new System.Drawing.Size(365, 94);
-            this.txtDatosAdicionales.TabIndex = 25;
+            this.txtDatosAdicionales.TabIndex = 8;
             // 
             // lblRol
             // 
@@ -132,7 +132,7 @@
             this.cboRol.Margin = new System.Windows.Forms.Padding(4);
             this.cboRol.Name = "cboRol";
             this.cboRol.Size = new System.Drawing.Size(201, 24);
-            this.cboRol.TabIndex = 22;
+            this.cboRol.TabIndex = 5;
             // 
             // txtEmailEmpleado
             // 
@@ -148,7 +148,7 @@
             this.txtEmailEmpleado.SelectionLength = 0;
             this.txtEmailEmpleado.SelectionStart = 0;
             this.txtEmailEmpleado.Size = new System.Drawing.Size(367, 28);
-            this.txtEmailEmpleado.TabIndex = 21;
+            this.txtEmailEmpleado.TabIndex = 4;
             this.txtEmailEmpleado.TabStop = false;
             this.txtEmailEmpleado.UseSystemPasswordChar = false;
             // 
@@ -166,7 +166,7 @@
             this.txtTelEmpleado.SelectionLength = 0;
             this.txtTelEmpleado.SelectionStart = 0;
             this.txtTelEmpleado.Size = new System.Drawing.Size(367, 28);
-            this.txtTelEmpleado.TabIndex = 20;
+            this.txtTelEmpleado.TabIndex = 3;
             this.txtTelEmpleado.TabStop = false;
             this.txtTelEmpleado.UseSystemPasswordChar = false;
             // 
@@ -184,7 +184,7 @@
             this.txtDirEmpleado.SelectionLength = 0;
             this.txtDirEmpleado.SelectionStart = 0;
             this.txtDirEmpleado.Size = new System.Drawing.Size(367, 28);
-            this.txtDirEmpleado.TabIndex = 19;
+            this.txtDirEmpleado.TabIndex = 2;
             this.txtDirEmpleado.TabStop = false;
             this.txtDirEmpleado.UseSystemPasswordChar = false;
             // 
@@ -202,7 +202,7 @@
             this.txtDocEmpleado.SelectionLength = 0;
             this.txtDocEmpleado.SelectionStart = 0;
             this.txtDocEmpleado.Size = new System.Drawing.Size(367, 28);
-            this.txtDocEmpleado.TabIndex = 18;
+            this.txtDocEmpleado.TabIndex = 1;
             this.txtDocEmpleado.TabStop = false;
             this.txtDocEmpleado.UseSystemPasswordChar = false;
             // 
@@ -220,7 +220,7 @@
             this.txtEmpleado.SelectionLength = 0;
             this.txtEmpleado.SelectionStart = 0;
             this.txtEmpleado.Size = new System.Drawing.Size(367, 28);
-            this.txtEmpleado.TabIndex = 17;
+            this.txtEmpleado.TabIndex = 0;
             this.txtEmpleado.TabStop = false;
             this.txtEmpleado.UseSystemPasswordChar = false;
             // 
@@ -243,7 +243,7 @@
             this.lblTitulo.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(58, 24);
-            this.lblTitulo.TabIndex = 15;
+            this.lblTitulo.TabIndex = 88;
             this.lblTitulo.Text = "Titulo";
             // 
             // lblRolEmpleado
@@ -334,7 +334,7 @@
             this.dtpFIngreso.MinDate = new System.DateTime(1799, 1, 1, 0, 0, 0, 0);
             this.dtpFIngreso.Name = "dtpFIngreso";
             this.dtpFIngreso.Size = new System.Drawing.Size(201, 22);
-            this.dtpFIngreso.TabIndex = 33;
+            this.dtpFIngreso.TabIndex = 6;
             // 
             // dtpFRetiro
             // 
@@ -344,7 +344,7 @@
             this.dtpFRetiro.MinDate = new System.DateTime(1799, 1, 1, 0, 0, 0, 0);
             this.dtpFRetiro.Name = "dtpFRetiro";
             this.dtpFRetiro.Size = new System.Drawing.Size(201, 22);
-            this.dtpFRetiro.TabIndex = 34;
+            this.dtpFRetiro.TabIndex = 7;
             // 
             // MensajeError
             // 

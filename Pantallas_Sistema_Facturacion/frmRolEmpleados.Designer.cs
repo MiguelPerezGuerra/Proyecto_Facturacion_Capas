@@ -47,9 +47,10 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.btnSalir);
-            this.panel1.Location = new System.Drawing.Point(269, 349);
+            this.panel1.Location = new System.Drawing.Point(359, 430);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(103, 36);
+            this.panel1.Size = new System.Drawing.Size(137, 44);
             this.panel1.TabIndex = 21;
             // 
             // btnSalir
@@ -60,11 +61,12 @@
             this.btnSalir.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnSalir.Icon = null;
             this.btnSalir.Location = new System.Drawing.Point(0, 0);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSalir.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Primary = true;
-            this.btnSalir.Size = new System.Drawing.Size(103, 36);
-            this.btnSalir.TabIndex = 13;
+            this.btnSalir.Size = new System.Drawing.Size(137, 44);
+            this.btnSalir.TabIndex = 3;
             this.btnSalir.Text = "SALIR";
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
@@ -75,12 +77,13 @@
             this.btnActualizar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnActualizar.Depth = 0;
             this.btnActualizar.Icon = null;
-            this.btnActualizar.Location = new System.Drawing.Point(113, 349);
+            this.btnActualizar.Location = new System.Drawing.Point(151, 430);
+            this.btnActualizar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnActualizar.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Primary = true;
-            this.btnActualizar.Size = new System.Drawing.Size(103, 36);
-            this.btnActualizar.TabIndex = 20;
+            this.btnActualizar.Size = new System.Drawing.Size(124, 36);
+            this.btnActualizar.TabIndex = 2;
             this.btnActualizar.Text = "ACTUALIZAR";
             this.btnActualizar.UseVisualStyleBackColor = true;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
@@ -89,7 +92,8 @@
             // 
             this.txtRol.Depth = 0;
             this.txtRol.Hint = "Nombre Rol";
-            this.txtRol.Location = new System.Drawing.Point(84, 79);
+            this.txtRol.Location = new System.Drawing.Point(112, 97);
+            this.txtRol.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtRol.MaxLength = 32767;
             this.txtRol.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtRol.Name = "txtRol";
@@ -97,16 +101,17 @@
             this.txtRol.SelectedText = "";
             this.txtRol.SelectionLength = 0;
             this.txtRol.SelectionStart = 0;
-            this.txtRol.Size = new System.Drawing.Size(300, 23);
-            this.txtRol.TabIndex = 19;
+            this.txtRol.Size = new System.Drawing.Size(400, 28);
+            this.txtRol.TabIndex = 0;
             this.txtRol.TabStop = false;
             this.txtRol.UseSystemPasswordChar = false;
             // 
             // txtIdRol
             // 
-            this.txtIdRol.Location = new System.Drawing.Point(84, 40);
+            this.txtIdRol.Location = new System.Drawing.Point(112, 49);
+            this.txtIdRol.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtIdRol.Name = "txtIdRol";
-            this.txtIdRol.Size = new System.Drawing.Size(44, 20);
+            this.txtIdRol.Size = new System.Drawing.Size(57, 22);
             this.txtIdRol.TabIndex = 18;
             // 
             // lblTitulo
@@ -115,10 +120,11 @@
             this.lblTitulo.Depth = 0;
             this.lblTitulo.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblTitulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblTitulo.Location = new System.Drawing.Point(251, 9);
+            this.lblTitulo.Location = new System.Drawing.Point(335, 11);
+            this.lblTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitulo.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(48, 19);
+            this.lblTitulo.Size = new System.Drawing.Size(58, 24);
             this.lblTitulo.TabIndex = 17;
             this.lblTitulo.Text = "Titulo";
             // 
@@ -127,7 +133,8 @@
             this.lblDesRol.Depth = 0;
             this.lblDesRol.Enabled = false;
             this.lblDesRol.Hint = "";
-            this.lblDesRol.Location = new System.Drawing.Point(84, 135);
+            this.lblDesRol.Location = new System.Drawing.Point(112, 166);
+            this.lblDesRol.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lblDesRol.MaxLength = 32767;
             this.lblDesRol.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblDesRol.Name = "lblDesRol";
@@ -135,7 +142,7 @@
             this.lblDesRol.SelectedText = "";
             this.lblDesRol.SelectionLength = 0;
             this.lblDesRol.SelectionStart = 0;
-            this.lblDesRol.Size = new System.Drawing.Size(300, 23);
+            this.lblDesRol.Size = new System.Drawing.Size(400, 28);
             this.lblDesRol.TabIndex = 22;
             this.lblDesRol.TabStop = false;
             this.lblDesRol.Text = "Descripción detallada Rol";
@@ -144,11 +151,12 @@
             // txtDesRol
             // 
             this.txtDesRol.BackColor = System.Drawing.SystemColors.Menu;
-            this.txtDesRol.Location = new System.Drawing.Point(84, 182);
+            this.txtDesRol.Location = new System.Drawing.Point(112, 224);
+            this.txtDesRol.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtDesRol.Multiline = true;
             this.txtDesRol.Name = "txtDesRol";
-            this.txtDesRol.Size = new System.Drawing.Size(300, 113);
-            this.txtDesRol.TabIndex = 23;
+            this.txtDesRol.Size = new System.Drawing.Size(399, 138);
+            this.txtDesRol.TabIndex = 1;
             // 
             // pnlCont
             // 
@@ -159,9 +167,10 @@
             this.pnlCont.Controls.Add(this.lblDesRol);
             this.pnlCont.Controls.Add(this.btnActualizar);
             this.pnlCont.Controls.Add(this.panel1);
-            this.pnlCont.Location = new System.Drawing.Point(123, 52);
+            this.pnlCont.Location = new System.Drawing.Point(164, 64);
+            this.pnlCont.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlCont.Name = "pnlCont";
-            this.pnlCont.Size = new System.Drawing.Size(483, 422);
+            this.pnlCont.Size = new System.Drawing.Size(643, 519);
             this.pnlCont.TabIndex = 24;
             // 
             // MensajeErrror
@@ -170,12 +179,13 @@
             // 
             // frmRolEmpleados
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(727, 500);
+            this.ClientSize = new System.Drawing.Size(969, 615);
             this.Controls.Add(this.pnlCont);
             this.Controls.Add(this.lblTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmRolEmpleados";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmRolEmpleados";

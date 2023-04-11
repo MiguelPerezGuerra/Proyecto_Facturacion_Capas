@@ -56,7 +56,8 @@
             this.lblEmpleado.Depth = 0;
             this.lblEmpleado.Enabled = false;
             this.lblEmpleado.Hint = "";
-            this.lblEmpleado.Location = new System.Drawing.Point(20, 42);
+            this.lblEmpleado.Location = new System.Drawing.Point(27, 52);
+            this.lblEmpleado.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lblEmpleado.MaxLength = 32767;
             this.lblEmpleado.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblEmpleado.Name = "lblEmpleado";
@@ -64,7 +65,7 @@
             this.lblEmpleado.SelectedText = "";
             this.lblEmpleado.SelectionLength = 0;
             this.lblEmpleado.SelectionStart = 0;
-            this.lblEmpleado.Size = new System.Drawing.Size(69, 23);
+            this.lblEmpleado.Size = new System.Drawing.Size(92, 28);
             this.lblEmpleado.TabIndex = 47;
             this.lblEmpleado.TabStop = false;
             this.lblEmpleado.Text = "Empleado";
@@ -73,9 +74,10 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.btnSalir);
-            this.panel1.Location = new System.Drawing.Point(699, 459);
+            this.panel1.Location = new System.Drawing.Point(932, 565);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(103, 36);
+            this.panel1.Size = new System.Drawing.Size(137, 44);
             this.panel1.TabIndex = 46;
             // 
             // btnSalir
@@ -86,11 +88,12 @@
             this.btnSalir.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnSalir.Icon = null;
             this.btnSalir.Location = new System.Drawing.Point(0, 0);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSalir.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Primary = true;
-            this.btnSalir.Size = new System.Drawing.Size(103, 36);
-            this.btnSalir.TabIndex = 13;
+            this.btnSalir.Size = new System.Drawing.Size(137, 44);
+            this.btnSalir.TabIndex = 7;
             this.btnSalir.Text = "SALIR";
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
@@ -101,12 +104,13 @@
             this.btnActualizar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnActualizar.Depth = 0;
             this.btnActualizar.Icon = null;
-            this.btnActualizar.Location = new System.Drawing.Point(699, 235);
+            this.btnActualizar.Location = new System.Drawing.Point(932, 289);
+            this.btnActualizar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnActualizar.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Primary = true;
-            this.btnActualizar.Size = new System.Drawing.Size(103, 36);
-            this.btnActualizar.TabIndex = 45;
+            this.btnActualizar.Size = new System.Drawing.Size(124, 36);
+            this.btnActualizar.TabIndex = 5;
             this.btnActualizar.Text = "ACTUALIZAR";
             this.btnActualizar.UseVisualStyleBackColor = true;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
@@ -117,26 +121,29 @@
             this.lblRol.Depth = 0;
             this.lblRol.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblRol.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblRol.Location = new System.Drawing.Point(251, 18);
+            this.lblRol.Location = new System.Drawing.Point(335, 22);
+            this.lblRol.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblRol.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblRol.Name = "lblRol";
-            this.lblRol.Size = new System.Drawing.Size(0, 19);
+            this.lblRol.Size = new System.Drawing.Size(0, 24);
             this.lblRol.TabIndex = 43;
             // 
             // cboEmpleado
             // 
             this.cboEmpleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboEmpleado.FormattingEnabled = true;
-            this.cboEmpleado.Location = new System.Drawing.Point(95, 44);
+            this.cboEmpleado.Location = new System.Drawing.Point(127, 54);
+            this.cboEmpleado.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cboEmpleado.Name = "cboEmpleado";
-            this.cboEmpleado.Size = new System.Drawing.Size(356, 21);
-            this.cboEmpleado.TabIndex = 42;
+            this.cboEmpleado.Size = new System.Drawing.Size(473, 24);
+            this.cboEmpleado.TabIndex = 0;
             // 
             // txtClave
             // 
             this.txtClave.Depth = 0;
             this.txtClave.Hint = "Clave";
-            this.txtClave.Location = new System.Drawing.Point(95, 175);
+            this.txtClave.Location = new System.Drawing.Point(127, 215);
+            this.txtClave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtClave.MaxLength = 32767;
             this.txtClave.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtClave.Name = "txtClave";
@@ -144,8 +151,8 @@
             this.txtClave.SelectedText = "";
             this.txtClave.SelectionLength = 0;
             this.txtClave.SelectionStart = 0;
-            this.txtClave.Size = new System.Drawing.Size(275, 23);
-            this.txtClave.TabIndex = 38;
+            this.txtClave.Size = new System.Drawing.Size(367, 28);
+            this.txtClave.TabIndex = 3;
             this.txtClave.TabStop = false;
             this.txtClave.UseSystemPasswordChar = false;
             // 
@@ -153,7 +160,8 @@
             // 
             this.txtUsuario.Depth = 0;
             this.txtUsuario.Hint = "Usuario";
-            this.txtUsuario.Location = new System.Drawing.Point(95, 100);
+            this.txtUsuario.Location = new System.Drawing.Point(127, 123);
+            this.txtUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtUsuario.MaxLength = 32767;
             this.txtUsuario.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtUsuario.Name = "txtUsuario";
@@ -161,8 +169,8 @@
             this.txtUsuario.SelectedText = "";
             this.txtUsuario.SelectionLength = 0;
             this.txtUsuario.SelectionStart = 0;
-            this.txtUsuario.Size = new System.Drawing.Size(275, 23);
-            this.txtUsuario.TabIndex = 37;
+            this.txtUsuario.Size = new System.Drawing.Size(367, 28);
+            this.txtUsuario.TabIndex = 1;
             this.txtUsuario.TabStop = false;
             this.txtUsuario.UseSystemPasswordChar = false;
             // 
@@ -172,10 +180,11 @@
             this.lblTitulo.Depth = 0;
             this.lblTitulo.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblTitulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblTitulo.Location = new System.Drawing.Point(324, 46);
+            this.lblTitulo.Location = new System.Drawing.Point(432, 57);
+            this.lblTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitulo.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(320, 19);
+            this.lblTitulo.Size = new System.Drawing.Size(396, 24);
             this.lblTitulo.TabIndex = 35;
             this.lblTitulo.Text = "ADMINISTRACIÓN DE USUARIO DEL SISTEMA";
             // 
@@ -187,17 +196,19 @@
             this.pnlCont.Controls.Add(this.txtClave);
             this.pnlCont.Controls.Add(this.cboEmpleado);
             this.pnlCont.Controls.Add(this.lblRol);
-            this.pnlCont.Location = new System.Drawing.Point(169, 134);
+            this.pnlCont.Location = new System.Drawing.Point(225, 165);
+            this.pnlCont.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlCont.Name = "pnlCont";
-            this.pnlCont.Size = new System.Drawing.Size(475, 235);
+            this.pnlCont.Size = new System.Drawing.Size(633, 289);
             this.pnlCont.TabIndex = 48;
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.btnConsultar);
-            this.panel2.Location = new System.Drawing.Point(699, 134);
+            this.panel2.Location = new System.Drawing.Point(932, 165);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(103, 36);
+            this.panel2.Size = new System.Drawing.Size(137, 44);
             this.panel2.TabIndex = 47;
             // 
             // btnConsultar
@@ -208,11 +219,12 @@
             this.btnConsultar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnConsultar.Icon = null;
             this.btnConsultar.Location = new System.Drawing.Point(0, 0);
+            this.btnConsultar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnConsultar.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Primary = true;
-            this.btnConsultar.Size = new System.Drawing.Size(103, 36);
-            this.btnConsultar.TabIndex = 13;
+            this.btnConsultar.Size = new System.Drawing.Size(137, 44);
+            this.btnConsultar.TabIndex = 4;
             this.btnConsultar.Text = "CONSULTAR";
             this.btnConsultar.UseVisualStyleBackColor = true;
             this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
@@ -220,9 +232,10 @@
             // panel3
             // 
             this.panel3.Controls.Add(this.btnEliminar);
-            this.panel3.Location = new System.Drawing.Point(699, 333);
+            this.panel3.Location = new System.Drawing.Point(932, 410);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(103, 36);
+            this.panel3.Size = new System.Drawing.Size(137, 44);
             this.panel3.TabIndex = 49;
             // 
             // btnEliminar
@@ -233,11 +246,12 @@
             this.btnEliminar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnEliminar.Icon = null;
             this.btnEliminar.Location = new System.Drawing.Point(0, 0);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEliminar.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Primary = true;
-            this.btnEliminar.Size = new System.Drawing.Size(103, 36);
-            this.btnEliminar.TabIndex = 13;
+            this.btnEliminar.Size = new System.Drawing.Size(137, 44);
+            this.btnEliminar.TabIndex = 6;
             this.btnEliminar.Text = "ELIMINAR";
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
@@ -248,9 +262,9 @@
             // 
             // frmAdminSeguridad
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1000, 586);
+            this.ClientSize = new System.Drawing.Size(1333, 721);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.pnlCont);
@@ -258,6 +272,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnActualizar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmAdminSeguridad";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAdminSeguridad";

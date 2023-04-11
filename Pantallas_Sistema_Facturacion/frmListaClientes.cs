@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MaterialSkin;
 using MaterialSkin.Controls;
+using Capa_LogicaDeNegocios;
 
 namespace Pantallas_Sistema_Facturacion
 {
@@ -19,16 +20,23 @@ namespace Pantallas_Sistema_Facturacion
             InitializeComponent();
         }
 
-        DataTable DataTable = new DataTable();
-        //AccesoDatos Acceso = new AccesoDatos();
+        DataTable Dt = new DataTable();
+        Cls_Cliente Cliente = new Cls_Cliente();
 
         public void LLenar_Grid()
         {
             dgClientes.Rows.Clear();
-            string Sentencia = $"SELECT IdCliente, StrNombre, NumDocumento, StrTelefono FROM TBLCLIENTES"; 
-           // DataTable = Acceso.EjecutarComandoDatos(Sentencia);
+            Dt = Cliente.ConsultarCliente();
+            if (Dt.Rows.Count > 0)
+            {
+                foreach (DataRow dr in Dt.Rows) { dgClientes.Rows.Add(dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString()); }
+            }
+            else
+            {
+                MessageBox.Show("No se encontraron Registros");
+            }
 
-            foreach (DataRow dr in DataTable.Rows) { dgClientes.Rows.Add(dr[0], dr[1], dr[2], dr[3]); }
+            
         }
         private void FrmListaClientes_Load(object sender, EventArgs e)
         {
@@ -40,12 +48,18 @@ namespace Pantallas_Sistema_Facturacion
             if (txtBuscar.Text != string.Empty)
             {
                 dgClientes.Rows.Clear();
-                string Sentencia = $"SELECT * FROM TBLCLIENTES WHERE strNombre LIKE '%{txtBuscar.Text}%'";
-               // DataTable = Acceso.EjecutarComandoDatos(Sentencia);
-
-                foreach (DataRow row in DataTable.Rows)
+                Dt = Cliente.FiltrarCliente(txtBuscar.Text);
+                if (Dt.Rows.Count > 0) 
                 {
-                    dgClientes.Rows.Add(row[0], row[1], row[2], row[3]);
+                    foreach (DataRow row in Dt.Rows)
+                    {
+                        dgClientes.Rows.Add(row[0].ToString(), row[1].ToString(), row[2].ToString(), row[3].ToString());
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No se encontraron Registros para la busqueda Solicitada");
+                    LLenar_Grid();
                 }
             }
             else
@@ -56,9 +70,9 @@ namespace Pantallas_Sistema_Facturacion
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            frmClientes Cliente = new frmClientes();
-            Cliente.IdCliente = 0;
-            Cliente.ShowDialog();
+            frmClientes frmCliente = new frmClientes();
+            frmCliente.IdCliente = 0;
+            frmCliente.ShowDialog();
             LLenar_Grid();
         }
 
@@ -72,12 +86,9 @@ namespace Pantallas_Sistema_Facturacion
                 if(MessageBox.Show($"Seguro de borrar al cliente {dgClientes[1, posActual].Value.ToString()}", "COMFIRMACION", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     // invocamos el procedimiento almacenado de eliminar cliente y pasamos como parametro el id del cliente a borrar
-                   int IdCliente = Convert.ToInt32(dgClientes[0, posActual].Value.ToString()); // leemos del datagrid el id del cliente a borrar
-
-                    string Sentencia = $"Exec Eliminar_cliente '{IdCliente}' ";
-
-                   // string Mensaje = Acceso.EjecutarComando(Sentencia);
-                   // MessageBox.Show(Mensaje);
+                   Cliente.C_IdCliente = Convert.ToInt32(dgClientes[0, posActual].Value.ToString()); // leemos del datagrid el id del cliente a borrar
+                    string mensaje = Cliente.EliminarCliente();
+                    MessageBox.Show(mensaje);
                     LLenar_Grid();
                 }
                 
@@ -85,9 +96,9 @@ namespace Pantallas_Sistema_Facturacion
             if (dgClientes.Columns[e.ColumnIndex].Name == "btnEditar") //verificamos si presiono el boton editar
             {
                 int posActual = dgClientes.CurrentRow.Index;  //tomamos la fila seleccionada
-                frmClientes Cliente = new frmClientes(); // instanciamos el formulario
-                Cliente.IdCliente= int.Parse(dgClientes[0, posActual].Value.ToString()); // pasamos al formulario de edicion el ID del cliente seleccionado
-                Cliente.ShowDialog(); // mostramos el formulario en forma modal
+                frmClientes frmCliente = new frmClientes(); // instanciamos el formulario
+                frmCliente.IdCliente= int.Parse(dgClientes[0, posActual].Value.ToString()); // pasamos al formulario de edicion el ID del cliente seleccionado
+                frmCliente.ShowDialog(); // mostramos el formulario en forma modal
                 LLenar_Grid();
             }
         }

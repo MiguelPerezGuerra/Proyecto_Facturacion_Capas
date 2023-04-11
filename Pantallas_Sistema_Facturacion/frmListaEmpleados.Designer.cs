@@ -124,7 +124,7 @@
             this.dgEmpleados.Name = "dgEmpleados";
             this.dgEmpleados.RowHeadersWidth = 51;
             this.dgEmpleados.Size = new System.Drawing.Size(1044, 426);
-            this.dgEmpleados.TabIndex = 11;
+            this.dgEmpleados.TabIndex = 3;
             this.dgEmpleados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgEmpleados_CellContentClick);
             // 
             // Id_Empleado
@@ -216,7 +216,7 @@
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Primary = true;
             this.btnBuscar.Size = new System.Drawing.Size(88, 36);
-            this.btnBuscar.TabIndex = 10;
+            this.btnBuscar.TabIndex = 1;
             this.btnBuscar.Text = "BUSCAR";
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
@@ -235,7 +235,7 @@
             this.txtBuscar.SelectionLength = 0;
             this.txtBuscar.SelectionStart = 0;
             this.txtBuscar.Size = new System.Drawing.Size(701, 28);
-            this.txtBuscar.TabIndex = 9;
+            this.txtBuscar.TabIndex = 0;
             this.txtBuscar.TabStop = false;
             this.txtBuscar.UseSystemPasswordChar = false;
             // 

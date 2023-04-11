@@ -108,7 +108,7 @@ namespace Capa_LogicaDeNegocios
             }
             catch (Exception ex)
             {
-                mensaje = "Falló Borrando en Empleado" + ex.Message;
+                mensaje = "Falló Borrado en Empleado" + ex.Message;
             }
             return mensaje;
         }
@@ -131,7 +131,7 @@ namespace Capa_LogicaDeNegocios
                 Lst.Add(new Cls_Parametros("@DtmIngreso", C_DtmIngreso));
                 Lst.Add(new Cls_Parametros("@DtmRetiro", C_DtmRetiro));
                 Lst.Add(new Cls_Parametros("@StrDatosAdicionales", C_StrDatosAdicionales));
-                Lst.Add(new Cls_Parametros("@DtmFechaModifica", DateTime.Now));
+                Lst.Add(new Cls_Parametros("@DtmFechaModifica", DateTime.Now.Date.ToString("yyyy-MM-dd HH:mm:ss")));
                 Lst.Add(new Cls_Parametros("@StrUsuarioModifico", C_StrUsuarioModifico));
 
                 // ejecutamos el procedimiento y pasamos lst con todos los parametros.
