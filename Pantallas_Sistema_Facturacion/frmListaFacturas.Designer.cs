@@ -54,12 +54,13 @@
             this.btnBuscar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnBuscar.Depth = 0;
             this.btnBuscar.Icon = null;
-            this.btnBuscar.Location = new System.Drawing.Point(641, 104);
+            this.btnBuscar.Location = new System.Drawing.Point(855, 128);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnBuscar.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Primary = true;
-            this.btnBuscar.Size = new System.Drawing.Size(74, 36);
-            this.btnBuscar.TabIndex = 17;
+            this.btnBuscar.Size = new System.Drawing.Size(88, 36);
+            this.btnBuscar.TabIndex = 1;
             this.btnBuscar.Text = "BUSCAR";
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
@@ -75,11 +76,12 @@
             this.strEstado,
             this.btnEditar,
             this.btnBorrar});
-            this.dgFacturas.Location = new System.Drawing.Point(109, 162);
+            this.dgFacturas.Location = new System.Drawing.Point(145, 199);
+            this.dgFacturas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgFacturas.Name = "dgFacturas";
             this.dgFacturas.RowHeadersWidth = 51;
-            this.dgFacturas.Size = new System.Drawing.Size(783, 346);
-            this.dgFacturas.TabIndex = 20;
+            this.dgFacturas.Size = new System.Drawing.Size(1044, 426);
+            this.dgFacturas.TabIndex = 3;
             this.dgFacturas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgFacturas_CellContentClick);
             // 
             // Id_Factura
@@ -138,9 +140,10 @@
             // panel3
             // 
             this.panel3.Controls.Add(this.btnSalir);
-            this.panel3.Location = new System.Drawing.Point(818, 514);
+            this.panel3.Location = new System.Drawing.Point(1091, 633);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(74, 36);
+            this.panel3.Size = new System.Drawing.Size(99, 44);
             this.panel3.TabIndex = 19;
             // 
             // btnSalir
@@ -151,10 +154,11 @@
             this.btnSalir.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnSalir.Icon = null;
             this.btnSalir.Location = new System.Drawing.Point(0, 0);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSalir.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Primary = true;
-            this.btnSalir.Size = new System.Drawing.Size(74, 36);
+            this.btnSalir.Size = new System.Drawing.Size(99, 44);
             this.btnSalir.TabIndex = 4;
             this.btnSalir.Text = "SALIR";
             this.btnSalir.UseVisualStyleBackColor = true;
@@ -163,9 +167,10 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.btnNuevo);
-            this.panel2.Location = new System.Drawing.Point(818, 104);
+            this.panel2.Location = new System.Drawing.Point(1091, 128);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(74, 36);
+            this.panel2.Size = new System.Drawing.Size(99, 44);
             this.panel2.TabIndex = 18;
             // 
             // btnNuevo
@@ -176,11 +181,12 @@
             this.btnNuevo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnNuevo.Icon = null;
             this.btnNuevo.Location = new System.Drawing.Point(0, 0);
+            this.btnNuevo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnNuevo.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Primary = true;
-            this.btnNuevo.Size = new System.Drawing.Size(74, 36);
-            this.btnNuevo.TabIndex = 3;
+            this.btnNuevo.Size = new System.Drawing.Size(99, 44);
+            this.btnNuevo.TabIndex = 2;
             this.btnNuevo.Text = "NUEVO";
             this.btnNuevo.UseVisualStyleBackColor = true;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
@@ -189,7 +195,8 @@
             // 
             this.txtBuscar.Depth = 0;
             this.txtBuscar.Hint = "Buscar Factura";
-            this.txtBuscar.Location = new System.Drawing.Point(109, 113);
+            this.txtBuscar.Location = new System.Drawing.Point(145, 139);
+            this.txtBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtBuscar.MaxLength = 32767;
             this.txtBuscar.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtBuscar.Name = "txtBuscar";
@@ -197,8 +204,8 @@
             this.txtBuscar.SelectedText = "";
             this.txtBuscar.SelectionLength = 0;
             this.txtBuscar.SelectionStart = 0;
-            this.txtBuscar.Size = new System.Drawing.Size(526, 23);
-            this.txtBuscar.TabIndex = 16;
+            this.txtBuscar.Size = new System.Drawing.Size(701, 28);
+            this.txtBuscar.TabIndex = 0;
             this.txtBuscar.TabStop = false;
             this.txtBuscar.UseSystemPasswordChar = false;
             // 
@@ -208,18 +215,19 @@
             this.lblFacturas.Depth = 0;
             this.lblFacturas.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblFacturas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblFacturas.Location = new System.Drawing.Point(387, 37);
+            this.lblFacturas.Location = new System.Drawing.Point(516, 46);
+            this.lblFacturas.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFacturas.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblFacturas.Name = "lblFacturas";
-            this.lblFacturas.Size = new System.Drawing.Size(235, 19);
+            this.lblFacturas.Size = new System.Drawing.Size(291, 24);
             this.lblFacturas.TabIndex = 15;
             this.lblFacturas.Text = "ADMINISTRACIÓN DE FACTURAS";
             // 
             // frmListaFacturas
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1000, 586);
+            this.ClientSize = new System.Drawing.Size(1333, 721);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.dgFacturas);
             this.Controls.Add(this.panel3);
@@ -227,6 +235,7 @@
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.lblFacturas);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmListaFacturas";
             this.Text = "frmListaFacturas";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

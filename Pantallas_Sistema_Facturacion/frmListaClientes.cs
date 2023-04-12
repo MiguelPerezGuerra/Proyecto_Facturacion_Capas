@@ -29,7 +29,7 @@ namespace Pantallas_Sistema_Facturacion
             Dt = Cliente.ConsultarCliente();
             if (Dt.Rows.Count > 0)
             {
-                foreach (DataRow dr in Dt.Rows) { dgClientes.Rows.Add(dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString()); }
+                foreach (DataRow dr in Dt.Rows) { dgClientes.Rows.Add(dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[4].ToString()); }
             }
             else
             {

@@ -86,7 +86,7 @@
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Primary = true;
             this.btnSalir.Size = new System.Drawing.Size(137, 44);
-            this.btnSalir.TabIndex = 13;
+            this.btnSalir.TabIndex = 9;
             this.btnSalir.Text = "SALIR";
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
@@ -105,7 +105,7 @@
             this.txtDescuento.SelectionLength = 0;
             this.txtDescuento.SelectionStart = 0;
             this.txtDescuento.Size = new System.Drawing.Size(359, 28);
-            this.txtDescuento.TabIndex = 19;
+            this.txtDescuento.TabIndex = 3;
             this.txtDescuento.TabStop = false;
             this.txtDescuento.UseSystemPasswordChar = false;
             // 
@@ -116,7 +116,7 @@
             this.txtIdFactura.Margin = new System.Windows.Forms.Padding(4);
             this.txtIdFactura.Name = "txtIdFactura";
             this.txtIdFactura.Size = new System.Drawing.Size(238, 22);
-            this.txtIdFactura.TabIndex = 18;
+            this.txtIdFactura.TabIndex = 0;
             // 
             // lblTitulo
             // 
@@ -158,7 +158,7 @@
             this.cboCliente.Margin = new System.Windows.Forms.Padding(4);
             this.cboCliente.Name = "cboCliente";
             this.cboCliente.Size = new System.Drawing.Size(237, 24);
-            this.cboCliente.TabIndex = 24;
+            this.cboCliente.TabIndex = 1;
             // 
             // lblCliente
             // 
@@ -213,7 +213,7 @@
             this.cboEmpleado.Margin = new System.Windows.Forms.Padding(4);
             this.cboEmpleado.Name = "cboEmpleado";
             this.cboEmpleado.Size = new System.Drawing.Size(237, 24);
-            this.cboEmpleado.TabIndex = 27;
+            this.cboEmpleado.TabIndex = 2;
             // 
             // txtTotalIva
             // 
@@ -229,7 +229,7 @@
             this.txtTotalIva.SelectionLength = 0;
             this.txtTotalIva.SelectionStart = 0;
             this.txtTotalIva.Size = new System.Drawing.Size(359, 28);
-            this.txtTotalIva.TabIndex = 28;
+            this.txtTotalIva.TabIndex = 4;
             this.txtTotalIva.TabStop = false;
             this.txtTotalIva.UseSystemPasswordChar = false;
             // 
@@ -247,7 +247,7 @@
             this.txtTotalFactura.SelectionLength = 0;
             this.txtTotalFactura.SelectionStart = 0;
             this.txtTotalFactura.Size = new System.Drawing.Size(359, 28);
-            this.txtTotalFactura.TabIndex = 29;
+            this.txtTotalFactura.TabIndex = 5;
             this.txtTotalFactura.TabStop = false;
             this.txtTotalFactura.UseSystemPasswordChar = false;
             // 
@@ -281,7 +281,7 @@
             this.dtpFechaRegistro.MinDate = new System.DateTime(1799, 1, 1, 0, 0, 0, 0);
             this.dtpFechaRegistro.Name = "dtpFechaRegistro";
             this.dtpFechaRegistro.Size = new System.Drawing.Size(176, 22);
-            this.dtpFechaRegistro.TabIndex = 31;
+            this.dtpFechaRegistro.TabIndex = 6;
             this.dtpFechaRegistro.Value = new System.DateTime(2023, 3, 16, 0, 0, 0, 0);
             // 
             // lblFacturaEstado
@@ -316,7 +316,7 @@
             this.cboEstadoFactura.Margin = new System.Windows.Forms.Padding(4);
             this.cboEstadoFactura.Name = "cboEstadoFactura";
             this.cboEstadoFactura.Size = new System.Drawing.Size(176, 24);
-            this.cboEstadoFactura.TabIndex = 33;
+            this.cboEstadoFactura.TabIndex = 7;
             // 
             // materialDivider1
             // 
@@ -445,7 +445,7 @@
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Primary = true;
             this.btnActualizar.Size = new System.Drawing.Size(137, 44);
-            this.btnActualizar.TabIndex = 20;
+            this.btnActualizar.TabIndex = 8;
             this.btnActualizar.Text = "ACTUALIZAR";
             this.btnActualizar.UseVisualStyleBackColor = true;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);

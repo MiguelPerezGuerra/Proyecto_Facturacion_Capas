@@ -31,13 +31,13 @@
             this.lblTitulo = new MaterialSkin.Controls.MaterialLabel();
             this.txtBuscar = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.btnBuscar = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.btnBorrar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.btnEditar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.strTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.strDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.strCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Id_Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgClientes = new System.Windows.Forms.DataGridView();
+            this.Id_Cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.strCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.strDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.strTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnEditar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.btnBorrar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnSalir = new MaterialSkin.Controls.MaterialRaisedButton();
             this.pnlButton = new System.Windows.Forms.Panel();
             this.btnNuevo = new MaterialSkin.Controls.MaterialRaisedButton();
@@ -100,52 +100,6 @@
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
-            // btnBorrar
-            // 
-            this.btnBorrar.HeaderText = "BORRAR";
-            this.btnBorrar.MinimumWidth = 6;
-            this.btnBorrar.Name = "btnBorrar";
-            this.btnBorrar.Text = "BORRAR";
-            this.btnBorrar.UseColumnTextForButtonValue = true;
-            this.btnBorrar.Width = 80;
-            // 
-            // btnEditar
-            // 
-            this.btnEditar.HeaderText = "EDITAR";
-            this.btnEditar.MinimumWidth = 6;
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Text = "EDITAR";
-            this.btnEditar.UseColumnTextForButtonValue = true;
-            this.btnEditar.Width = 80;
-            // 
-            // strTelefono
-            // 
-            this.strTelefono.HeaderText = "TELEFONO";
-            this.strTelefono.MinimumWidth = 6;
-            this.strTelefono.Name = "strTelefono";
-            this.strTelefono.Width = 125;
-            // 
-            // strDocumento
-            // 
-            this.strDocumento.HeaderText = "DOCUMENTO";
-            this.strDocumento.MinimumWidth = 6;
-            this.strDocumento.Name = "strDocumento";
-            this.strDocumento.Width = 125;
-            // 
-            // strCliente
-            // 
-            this.strCliente.HeaderText = "CLIENTE";
-            this.strCliente.MinimumWidth = 6;
-            this.strCliente.Name = "strCliente";
-            this.strCliente.Width = 300;
-            // 
-            // Id_Cliente
-            // 
-            this.Id_Cliente.HeaderText = "ID";
-            this.Id_Cliente.MinimumWidth = 6;
-            this.Id_Cliente.Name = "Id_Cliente";
-            this.Id_Cliente.Width = 80;
-            // 
             // dgClientes
             // 
             this.dgClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -163,6 +117,52 @@
             this.dgClientes.Size = new System.Drawing.Size(1044, 426);
             this.dgClientes.TabIndex = 3;
             this.dgClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgClientes_CellContentClick);
+            // 
+            // Id_Cliente
+            // 
+            this.Id_Cliente.HeaderText = "ID";
+            this.Id_Cliente.MinimumWidth = 6;
+            this.Id_Cliente.Name = "Id_Cliente";
+            this.Id_Cliente.Width = 80;
+            // 
+            // strCliente
+            // 
+            this.strCliente.HeaderText = "CLIENTE";
+            this.strCliente.MinimumWidth = 6;
+            this.strCliente.Name = "strCliente";
+            this.strCliente.Width = 240;
+            // 
+            // strDocumento
+            // 
+            this.strDocumento.HeaderText = "DOCUMENTO";
+            this.strDocumento.MinimumWidth = 6;
+            this.strDocumento.Name = "strDocumento";
+            this.strDocumento.Width = 125;
+            // 
+            // strTelefono
+            // 
+            this.strTelefono.HeaderText = "TELEFONO";
+            this.strTelefono.MinimumWidth = 6;
+            this.strTelefono.Name = "strTelefono";
+            this.strTelefono.Width = 125;
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.HeaderText = "EDITAR";
+            this.btnEditar.MinimumWidth = 6;
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Text = "EDITAR";
+            this.btnEditar.UseColumnTextForButtonValue = true;
+            this.btnEditar.Width = 80;
+            // 
+            // btnBorrar
+            // 
+            this.btnBorrar.HeaderText = "BORRAR";
+            this.btnBorrar.MinimumWidth = 6;
+            this.btnBorrar.Name = "btnBorrar";
+            this.btnBorrar.Text = "BORRAR";
+            this.btnBorrar.UseColumnTextForButtonValue = true;
+            this.btnBorrar.Width = 80;
             // 
             // btnSalir
             // 
@@ -260,17 +260,17 @@
         private MaterialSkin.Controls.MaterialLabel lblTitulo;
         private MaterialSkin.Controls.MaterialSingleLineTextField txtBuscar;
         private MaterialSkin.Controls.MaterialRaisedButton btnBuscar;
-        private System.Windows.Forms.DataGridViewButtonColumn btnBorrar;
-        private System.Windows.Forms.DataGridViewButtonColumn btnEditar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn strTelefono;
-        private System.Windows.Forms.DataGridViewTextBoxColumn strDocumento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn strCliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id_Cliente;
         private System.Windows.Forms.DataGridView dgClientes;
         private MaterialSkin.Controls.MaterialRaisedButton btnSalir;
         private System.Windows.Forms.Panel pnlButton;
         private MaterialSkin.Controls.MaterialRaisedButton btnNuevo;
         private System.Windows.Forms.Panel pnlButtonNuevo;
         private System.Windows.Forms.Panel pnlContent;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id_Cliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn strCliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn strDocumento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn strTelefono;
+        private System.Windows.Forms.DataGridViewButtonColumn btnEditar;
+        private System.Windows.Forms.DataGridViewButtonColumn btnBorrar;
     }
 }

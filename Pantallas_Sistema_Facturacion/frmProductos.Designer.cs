@@ -60,7 +60,7 @@
             this.lblTitulo.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(58, 24);
-            this.lblTitulo.TabIndex = 0;
+            this.lblTitulo.TabIndex = 20;
             this.lblTitulo.Text = "Titulo";
             // 
             // txtIdProducto
@@ -69,7 +69,7 @@
             this.txtIdProducto.Margin = new System.Windows.Forms.Padding(4);
             this.txtIdProducto.Name = "txtIdProducto";
             this.txtIdProducto.Size = new System.Drawing.Size(57, 22);
-            this.txtIdProducto.TabIndex = 1;
+            this.txtIdProducto.TabIndex = 22;
             // 
             // txtProducto
             // 
@@ -85,7 +85,7 @@
             this.txtProducto.SelectionLength = 0;
             this.txtProducto.SelectionStart = 0;
             this.txtProducto.Size = new System.Drawing.Size(367, 28);
-            this.txtProducto.TabIndex = 2;
+            this.txtProducto.TabIndex = 0;
             this.txtProducto.TabStop = false;
             this.txtProducto.UseSystemPasswordChar = false;
             // 
@@ -103,7 +103,7 @@
             this.txtCodReferencia.SelectionLength = 0;
             this.txtCodReferencia.SelectionStart = 0;
             this.txtCodReferencia.Size = new System.Drawing.Size(367, 28);
-            this.txtCodReferencia.TabIndex = 3;
+            this.txtCodReferencia.TabIndex = 1;
             this.txtCodReferencia.TabStop = false;
             this.txtCodReferencia.UseSystemPasswordChar = false;
             // 
@@ -121,7 +121,7 @@
             this.txtPrecioCompra.SelectionLength = 0;
             this.txtPrecioCompra.SelectionStart = 0;
             this.txtPrecioCompra.Size = new System.Drawing.Size(367, 28);
-            this.txtPrecioCompra.TabIndex = 4;
+            this.txtPrecioCompra.TabIndex = 2;
             this.txtPrecioCompra.TabStop = false;
             this.txtPrecioCompra.UseSystemPasswordChar = false;
             // 
@@ -139,7 +139,7 @@
             this.txtPrecioVenta.SelectionLength = 0;
             this.txtPrecioVenta.SelectionStart = 0;
             this.txtPrecioVenta.Size = new System.Drawing.Size(367, 28);
-            this.txtPrecioVenta.TabIndex = 5;
+            this.txtPrecioVenta.TabIndex = 3;
             this.txtPrecioVenta.TabStop = false;
             this.txtPrecioVenta.UseSystemPasswordChar = false;
             // 
@@ -157,7 +157,7 @@
             this.txtStock.SelectionLength = 0;
             this.txtStock.SelectionStart = 0;
             this.txtStock.Size = new System.Drawing.Size(367, 28);
-            this.txtStock.TabIndex = 6;
+            this.txtStock.TabIndex = 4;
             this.txtStock.TabStop = false;
             this.txtStock.UseSystemPasswordChar = false;
             // 
@@ -173,7 +173,7 @@
             this.cboCategoria.Margin = new System.Windows.Forms.Padding(4);
             this.cboCategoria.Name = "cboCategoria";
             this.cboCategoria.Size = new System.Drawing.Size(264, 24);
-            this.cboCategoria.TabIndex = 7;
+            this.cboCategoria.TabIndex = 5;
             // 
             // lblCategoria
             // 
@@ -203,7 +203,7 @@
             this.txtRutaImagen.SelectionLength = 0;
             this.txtRutaImagen.SelectionStart = 0;
             this.txtRutaImagen.Size = new System.Drawing.Size(367, 28);
-            this.txtRutaImagen.TabIndex = 9;
+            this.txtRutaImagen.TabIndex = 6;
             this.txtRutaImagen.TabStop = false;
             this.txtRutaImagen.UseSystemPasswordChar = false;
             // 
@@ -214,7 +214,7 @@
             this.txtDatalle.Multiline = true;
             this.txtDatalle.Name = "txtDatalle";
             this.txtDatalle.Size = new System.Drawing.Size(365, 94);
-            this.txtDatalle.TabIndex = 10;
+            this.txtDatalle.TabIndex = 7;
             // 
             // lblDetalles
             // 
@@ -242,7 +242,7 @@
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Primary = true;
             this.btnActualizar.Size = new System.Drawing.Size(124, 36);
-            this.btnActualizar.TabIndex = 12;
+            this.btnActualizar.TabIndex = 8;
             this.btnActualizar.Text = "ACTUALIZAR";
             this.btnActualizar.UseVisualStyleBackColor = true;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
@@ -260,7 +260,7 @@
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Primary = true;
             this.btnSalir.Size = new System.Drawing.Size(137, 44);
-            this.btnSalir.TabIndex = 13;
+            this.btnSalir.TabIndex = 9;
             this.btnSalir.Text = "SALIR";
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);

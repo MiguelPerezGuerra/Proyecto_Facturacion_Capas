@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MaterialSkin;
 using MaterialSkin.Controls;
+using Capa_LogicaDeNegocios;
 
 namespace Pantallas_Sistema_Facturacion
 {
@@ -18,18 +19,26 @@ namespace Pantallas_Sistema_Facturacion
         {
             InitializeComponent();
         }
-        DataTable dataTable = new DataTable();
-        //AccesoDatos accesoDatos= new AccesoDatos();
+        DataTable Dt = new DataTable();
+        Cls_Productos Productos = new Cls_Productos();
 
         public void LLenarGrid()
         {
             dgProductos.Rows.Clear();
-            string Sentencia = "SELECT TBLPRODUCTO.IdProducto, TBLPRODUCTO.StrCodigo, TBLPRODUCTO.StrNombre, TBLPRODUCTO.IdCategoria, TBLPRODUCTO.NumPrecioCompra, TBLPRODUCTO.NumStock FROM TBLPRODUCTO";
-            //dataTable= accesoDatos.EjecutarComandoDatos(Sentencia);
-            foreach (DataRow row in dataTable.Rows)
+            Dt = Productos.ConsultarProducto();
+            if (Dt.Rows.Count > 0)
             {
-                dgProductos.Rows.Add(row[0], row[1], row[2], row[3], row[4], row[5]);
+                foreach (DataRow row in Dt.Rows)
+                {
+                    dgProductos.Rows.Add(row[0], row[2], row[1], row[5], row[3], row[8]);
+                }
             }
+            else 
+            {
+                MessageBox.Show("No se encontraron Registros");
+            }
+
+            
         }
         private void frmListaProductos_Load(object sender, EventArgs e)
         {
@@ -41,24 +50,34 @@ namespace Pantallas_Sistema_Facturacion
             if (!string.IsNullOrEmpty(txtBuscar.Text) || !string.IsNullOrWhiteSpace(txtBuscar.Text))
             {
                 dgProductos.Rows.Clear();
-                string Sentencia = $"SELECT TBLPRODUCTO.IdProducto, TBLPRODUCTO.StrCodigo, TBLPRODUCTO.StrNombre, TBLCATEGORIA_PROD.StrDescripcion, TBLPRODUCTO.NumPrecioCompra, TBLPRODUCTO.NumStock FROM TBLPRODUCTO INNER JOIN TBLCATEGORIA_PROD ON TBLPRODUCTO.IdCategoria=TBLCATEGORIA_PROD.IdCategoria WHERE TBLPRODUCTO.StrNombre LIKE '%{txtBuscar.Text}%' ";
-                //dataTable = accesoDatos.EjecutarComandoDatos(Sentencia);
-                foreach (DataRow row in dataTable.Rows)
+                Dt = Productos.FiltrarProducto(txtBuscar.Text);
+                if (Dt.Rows.Count > 0)
                 {
-                    dgProductos.Rows.Add(row[0], row[1], row[2], row[3], row[4], row[5]);
+                    foreach (DataRow row in Dt.Rows)
+                    {
+                        dgProductos.Rows.Add(row[0].ToString(), row[1].ToString(), row[2].ToString(), row[3].ToString(), row[4], row[5].ToString());
+                    }
                 }
+                else
+                {
+                    MessageBox.Show("No se encontraron Registros para la busqueda Solicitado");
+                    LLenarGrid();
+                }
+                
+                
             }
             else
             {
                 LLenarGrid();
             }
+            txtBuscar.Text = string.Empty;
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            frmProductos producto= new frmProductos();
-            producto.IdProducto = 0;
-            producto.ShowDialog();
+            frmProductos frmProducto= new frmProductos();
+            frmProducto.IdProducto = 0;
+            frmProducto.ShowDialog();
             LLenarGrid();
         }
 
@@ -69,10 +88,9 @@ namespace Pantallas_Sistema_Facturacion
                 int posActual = dgProductos.CurrentRow.Index;
                 if(MessageBox.Show($"Seguro de Borrar el Producto {dgProductos[2, posActual].Value.ToString()}", "COMFIRMACION", MessageBoxButtons.YesNo, MessageBoxIcon.Question)== DialogResult.Yes)
                 {
-                    int IdProducto = Convert.ToInt32(dgProductos[0, posActual].Value.ToString());
-                    string Sentencia = $"Exec Eliminar_Producto {IdProducto}";
-                    //string Mensaje = accesoDatos.EjecutarComando(Sentencia);
-                    //MessageBox.Show(Mensaje);
+                    Productos.C_IdProducto = Convert.ToInt32(dgProductos[0, posActual].Value.ToString());
+                    string mensaje = Productos.EliminarProducto();
+                    MessageBox.Show(mensaje);
                     LLenarGrid();
                 }
             }
