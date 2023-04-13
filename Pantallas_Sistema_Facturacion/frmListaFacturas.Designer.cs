@@ -55,7 +55,7 @@
             this.btnBuscar.Depth = 0;
             this.btnBuscar.Icon = null;
             this.btnBuscar.Location = new System.Drawing.Point(855, 128);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscar.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Primary = true;
@@ -77,7 +77,7 @@
             this.btnEditar,
             this.btnBorrar});
             this.dgFacturas.Location = new System.Drawing.Point(145, 199);
-            this.dgFacturas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgFacturas.Margin = new System.Windows.Forms.Padding(4);
             this.dgFacturas.Name = "dgFacturas";
             this.dgFacturas.RowHeadersWidth = 51;
             this.dgFacturas.Size = new System.Drawing.Size(1044, 426);
@@ -141,7 +141,7 @@
             // 
             this.panel3.Controls.Add(this.btnSalir);
             this.panel3.Location = new System.Drawing.Point(1091, 633);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(99, 44);
             this.panel3.TabIndex = 19;
@@ -154,7 +154,7 @@
             this.btnSalir.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnSalir.Icon = null;
             this.btnSalir.Location = new System.Drawing.Point(0, 0);
-            this.btnSalir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(4);
             this.btnSalir.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Primary = true;
@@ -168,7 +168,7 @@
             // 
             this.panel2.Controls.Add(this.btnNuevo);
             this.panel2.Location = new System.Drawing.Point(1091, 128);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(99, 44);
             this.panel2.TabIndex = 18;
@@ -181,7 +181,7 @@
             this.btnNuevo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnNuevo.Icon = null;
             this.btnNuevo.Location = new System.Drawing.Point(0, 0);
-            this.btnNuevo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnNuevo.Margin = new System.Windows.Forms.Padding(4);
             this.btnNuevo.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Primary = true;
@@ -194,9 +194,9 @@
             // txtBuscar
             // 
             this.txtBuscar.Depth = 0;
-            this.txtBuscar.Hint = "Buscar Factura";
+            this.txtBuscar.Hint = "Buscar Factura por Nombre de Cliente";
             this.txtBuscar.Location = new System.Drawing.Point(145, 139);
-            this.txtBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.txtBuscar.MaxLength = 32767;
             this.txtBuscar.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtBuscar.Name = "txtBuscar";
@@ -235,7 +235,7 @@
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.lblFacturas);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmListaFacturas";
             this.Text = "frmListaFacturas";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

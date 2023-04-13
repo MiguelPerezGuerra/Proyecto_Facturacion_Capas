@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Capa_LogicaDeNegocios;
 
 namespace Pantallas_Sistema_Facturacion
 {
@@ -18,43 +19,57 @@ namespace Pantallas_Sistema_Facturacion
         }
 
         public int IdFactura { get; set; }
-        DataTable DataTable = new DataTable();
-        //AccesoDatos accesoDatos= new AccesoDatos();
+        DataTable Dt = new DataTable();
+        Cls_Facturas Facturas = new Cls_Facturas();
 
         private void LLenarFactura()
         {
-            if (IdFactura == 0)
+            Dt = Facturas.ConsultarFactura(IdFactura);
+            if (Dt.Rows.Count > 0)
             {
-                lblTitulo.Text = "INGRESE NUEVA FACTURA";
-            }
-            else
-            {
-                lblTitulo.Text = "MODIFICAR FACTURA";
-                string Sentencia = $"SELECT * FROM TBLFACTURA WHERE IdFactura = '{IdFactura}' ";
-                //DataTable = accesoDatos.EjecutarComandoDatos(Sentencia);
-                foreach (DataRow row in DataTable.Rows)
+                foreach (DataRow row in Dt.Rows)
                 {
                     txtIdFactura.Text = row[0].ToString();
-                    cboCliente.SelectedText= row[2].ToString();
-                    cboEmpleado.SelectedText= row[3].ToString();
+                    cboCliente.SelectedValue = int.Parse(row[2].ToString());
+                    cboEmpleado.SelectedValue = int.Parse(row[3].ToString()); 
                     txtDescuento.Text = row[4].ToString();
                     txtTotalIva.Text = row[5].ToString();
                     txtTotalFactura.Text = row[6].ToString();
                     dtpFechaRegistro.Value = Convert.ToDateTime(row[1].ToString());
-                    cboEstadoFactura.Text = row[7].ToString();
+                    cboEstadoFactura.SelectedValue = int.Parse(row[7].ToString());
                 }
             }
         }
 
         public void LLenarProducto()
         {
-            string Sentencia = $"SELECT * FROM TBLPRODUCTO";
-            DataTable dt = new DataTable();
-           // dt = accesoDatos.EjecutarComandoDatos(Sentencia);
-            foreach (DataRow row in dt.Rows)
+            DataTable DtProductos = new DataTable();
+            DtProductos = Facturas.ConsultarProductos();
+            foreach (DataRow row in DtProductos.Rows)
             {
                 dgDetFact.Rows.Add(row[2], row[1], row[8], row[3], row[4], row[6]);
             }
+        }
+
+        public void LLenarCboCliente()
+        {
+            cboCliente.DataSource = Facturas.ConsultarClientes();
+            cboCliente.DisplayMember = "StrNombre";
+            cboCliente.ValueMember = "IdCliente";
+        }
+
+        public void LLenarCboEmpleado()
+        {
+            cboEmpleado.DataSource = Facturas.ConsultarEmpleados();
+            cboEmpleado.DisplayMember = "StrNombre";
+            cboEmpleado.ValueMember = "IdEmpleado";
+        }
+
+        public void LLenarCboEstado()
+        {
+            cboEstadoFactura.DataSource = Facturas.ConsultarEstadoFactura();
+            cboEstadoFactura.DisplayMember = "StrDescripcion";
+            cboEstadoFactura.ValueMember = "IdEstadoFactura";
         }
 
         private bool Validar()
@@ -64,39 +79,55 @@ namespace Pantallas_Sistema_Facturacion
             if (string.IsNullOrEmpty(cboCliente.Text) || string.IsNullOrWhiteSpace(cboCliente.Text))
             {
                 MensajeError.SetError(cboCliente, "Debe seleccionar un Cliente");
+                errorCampos = false;
+                cboCliente.Focus();
             } else { MensajeError.SetError(cboCliente, ""); }
 
             if (string.IsNullOrEmpty(cboEmpleado.Text) || string.IsNullOrWhiteSpace(cboEmpleado.Text))
             {
                 MensajeError.SetError(cboEmpleado, "Debe Seleccionar un Empleado");
+                errorCampos = false;
+                cboEmpleado.Focus();
             } else { MensajeError.SetError(cboEmpleado, ""); }
 
             if (string.IsNullOrEmpty(txtDescuento.Text) || string.IsNullOrWhiteSpace(txtDescuento.Text))
             {
                 MensajeError.SetError(txtDescuento, "Debe ingresar el valor de Descuento");
+                errorCampos = false;
+                txtDescuento.Focus();
             } else { MensajeError.SetError(txtDescuento, ""); }
             if (!esNumerico(txtDescuento.Text))
             {
                 MensajeError.SetError(txtDescuento, "Debe ingresar valores Numericos");
+                errorCampos = false;
+                txtDescuento.Focus();
             } else { MensajeError.SetError(txtDescuento, ""); }
 
             if (string.IsNullOrEmpty(txtTotalFactura.Text) || string.IsNullOrWhiteSpace(txtTotalFactura.Text))
             {
                 MensajeError.SetError(txtTotalFactura, "Debe ingredar el valor del Total");
+                errorCampos = false;
+                txtTotalFactura.Focus();
             } else {MensajeError.SetError(txtTotalFactura, ""); }
             if (!esNumerico(txtTotalFactura.Text))
             {
                 MensajeError.SetError(txtTotalFactura, "Debe ingresar valores Numericos");
+                errorCampos = false;
+                txtTotalFactura.Focus();
             }
             else { MensajeError.SetError(txtTotalFactura, ""); }
 
             if (string.IsNullOrEmpty(txtTotalIva.Text) || string.IsNullOrWhiteSpace(txtTotalIva.Text))
             {
                 MensajeError.SetError(txtTotalIva, "Debe ingresar el valor del Iva");
+                errorCampos = false;
+                txtTotalIva.Focus();
             } else { MensajeError.SetError(txtTotalIva, ""); }
             if (!esNumerico(txtTotalIva.Text))
             {
                 MensajeError.SetError(txtTotalIva, "Debe ingresar valores Numericos");
+                errorCampos = false;
+                txtTotalIva.Focus();
             }
             else { MensajeError.SetError(txtTotalIva, ""); }
 
@@ -116,32 +147,43 @@ namespace Pantallas_Sistema_Facturacion
             }
         }
 
-        public bool Guardar()
+        public void Guardar()
         {
-            Boolean Actualizado = false;
+            string mensaje = string.Empty;
             if (Validar())
             {
-                try
-                {
-                    string Sentencia = $" Exec actualizar_Factura {IdFactura}, '{dtpFechaRegistro.Value.Date.ToString("yyyy-MM-dd HH:mm:ss")}', {Convert.ToInt32(cboCliente.Text)}, {Convert.ToInt32(cboEmpleado.Text)}, {Convert.ToDouble(txtDescuento.Text)}, {Convert.ToDouble(txtTotalIva.Text)}, {Convert.ToDouble(txtTotalFactura.Text)}, {Convert.ToInt32(cboEstadoFactura.Text)}, '{DateTime.Now.Date.ToString("yyyy-MM-dd HH:mm:ss")}', 'Javier' ";
-                   // MessageBox.Show(accesoDatos.EjecutarComando(Sentencia));
-                    Actualizado = true;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Fallo inserción: " + ex);
-                    Actualizado = false;
-                }
+                Facturas.C_IdFactura = IdFactura;
+                Facturas.C_DtmFecha = dtpFechaRegistro.Value.Date.ToString("yyyy-MM-dd HH:mm:ss");
+                Facturas.C_IdCliente = int.Parse(cboCliente.SelectedValue.ToString());
+                Facturas.C_IdEmpleado = int.Parse(cboEmpleado.SelectedValue.ToString());
+                Facturas.C_NumDescuento = Single.Parse(txtDescuento.Text); 
+                Facturas.C_NumImpuesto = Single.Parse(txtTotalIva.Text); 
+                Facturas.C_NumValorTotal = Single.Parse(txtTotalFactura.Text);
+                Facturas.C_IdEstado = int.Parse(cboEstadoFactura.SelectedValue.ToString());
+                Facturas.C_StrUsuarioModifica = "Javier";
+                mensaje = Facturas.ActualizarFactura();
+                MessageBox.Show(mensaje);
+
             }
-            
-            return Actualizado;
+                
         }
 
 
         private void frmEditarFacturas_Load(object sender, EventArgs e)
         {
-            LLenarFactura();
             LLenarProducto();
+            LLenarCboCliente();
+            LLenarCboEmpleado();
+            LLenarCboEstado();
+            if (IdFactura == 0)
+            {
+                lblTitulo.Text = "INGRESE NUEVA FACTURA";
+            }
+            else
+            {
+                lblTitulo.Text = "MODIFICAR FACTURA";
+                LLenarFactura();
+            }
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)

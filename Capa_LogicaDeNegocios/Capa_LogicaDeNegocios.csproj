@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cls_ EstadoFactura.cs" />
     <Compile Include="Cls_Categoria_Prod.cs" />
     <Compile Include="Cls_Cliente.cs" />
     <Compile Include="Cls_Empleados.cs" />
