@@ -19,7 +19,6 @@ namespace Capa_LogicaDeNegocios
         public float C_NumValorTotal { get; set; }
         public int C_IdEstado { get; set; }
         public string C_StrUsuarioModifica { get; set; }
-        public string C_filtro { get; set; }
 
         Cls_Acceso_Datos AccesoDatos = new Cls_Acceso_Datos();
 
@@ -152,7 +151,7 @@ namespace Capa_LogicaDeNegocios
             try
             {
                 List<Cls_Parametros> Lst = new List<Cls_Parametros>();
-                Lst.Add(new Cls_Parametros("@IdFactuar", C_IdFactura));
+                Lst.Add(new Cls_Parametros("@IdFactura", C_IdFactura));
                 Lst.Add(new Cls_Parametros("@DtmFecha", C_DtmFecha));
                 Lst.Add(new Cls_Parametros("@IdCliente", C_IdCliente));
                 Lst.Add(new Cls_Parametros("@IdEmpleado", C_IdEmpleado));
