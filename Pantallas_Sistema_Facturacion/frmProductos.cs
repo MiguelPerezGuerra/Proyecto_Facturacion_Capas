@@ -23,6 +23,12 @@ namespace Pantallas_Sistema_Facturacion
         DataTable Dt = new DataTable();
         Cls_Productos Productos = new Cls_Productos();
 
+        private void LLenarCboCategoria()
+        {
+            cboCategoria.DataSource = Productos.ConsultarCategoria();
+            cboCategoria.DisplayMember = "StrDescripcion";
+            cboCategoria.ValueMember = "IdCategoria";
+        }
         private void LLenarProducto()
         {
             Dt = Productos.ConsultarProducto(IdProducto);
@@ -34,7 +40,7 @@ namespace Pantallas_Sistema_Facturacion
                     txtCodReferencia.Text = row[2].ToString();
                     txtPrecioCompra.Text = row[3].ToString();
                     txtPrecioVenta.Text = row[4].ToString();
-                    cboCategoria.SelectedText = row[5].ToString();
+                    cboCategoria.SelectedValue = int.Parse(row[5].ToString());
                     txtDatalle.Text = row[6].ToString();
                     txtRutaImagen.Text = row[7].ToString();
                     txtStock.Text = row[8].ToString();
@@ -155,14 +161,14 @@ namespace Pantallas_Sistema_Facturacion
             {
                 Productos.C_IdProducto = IdProducto;
                 Productos.C_StrNombre = txtProducto.Text;
-                Productos.C_StrCodigo = txtProducto.Text;
+                Productos.C_StrCodigo = txtCodReferencia.Text;
                 Productos.C_NumPrecioCompra = Single.Parse(txtPrecioCompra.Text);
                 Productos.C_NumPrecioVenta = Single.Parse(txtPrecioVenta.Text);
-                Productos.C_NumStock = int.Parse(txtStock.Text);
-                Productos.C_IdCategoria = int.Parse(cboCategoria.Text);
-                Productos.C_StrFoto = txtRutaImagen.Text;
+                Productos.C_IdCategoria = int.Parse(cboCategoria.SelectedValue.ToString());
                 Productos.C_StrDetalle = txtDatalle.Text;
-                Productos.C_StrUsuarioModifico = "Javier";
+                Productos.C_StrFoto = txtRutaImagen.Text;
+                Productos.C_NumStock = int.Parse(txtStock.Text);
+                Productos.C_StrUsuarioModifica = "Javier";
                 mensaje = Productos.ActualizarProducto();
                 MessageBox.Show(mensaje);
             }
@@ -171,6 +177,7 @@ namespace Pantallas_Sistema_Facturacion
 
         private void frmEditarProducto_Load(object sender, EventArgs e)
         {
+            LLenarCboCategoria();
             if (IdProducto == 0)
             {
                 lblTitulo.Text = "INGRESO NUEVO PRODUCTO";

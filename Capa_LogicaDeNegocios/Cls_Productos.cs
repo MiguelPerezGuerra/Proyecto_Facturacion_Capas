@@ -19,7 +19,7 @@ namespace Capa_LogicaDeNegocios
         public string C_StrDetalle { get; set; }
         public string C_StrFoto { get; set; }
         public int C_NumStock { get; set; }
-        public string C_StrUsuarioModifico { get; set; }
+        public string C_StrUsuarioModifica { get; set; }
 
         Cls_Acceso_Datos AccesoDatos = new Cls_Acceso_Datos();
 
@@ -47,6 +47,21 @@ namespace Capa_LogicaDeNegocios
                 sentencia = $"SELECT * FROM TBLPRODUCTO WHERE IdProducto = {IdProducto}";
                 DataTable Dt = new DataTable();
                 Dt = AccesoDatos.EjecutarConsulta(sentencia);
+                return Dt;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public DataTable ConsultarCategoria()
+        {
+            try
+            {
+                Cls_Categoria_Prod Categoria = new Cls_Categoria_Prod();
+                DataTable Dt = new DataTable();
+                Dt = Categoria.ConsultarCategoria();
                 return Dt;
             }
             catch (Exception)
@@ -105,7 +120,7 @@ namespace Capa_LogicaDeNegocios
                 Lst.Add(new Cls_Parametros("@strFoto", C_StrFoto));
                 Lst.Add(new Cls_Parametros("@NumStock", C_NumStock));
                 Lst.Add(new Cls_Parametros("@DtmFechaModifica", DateTime.Now.Date.ToString("yyyy-MM-dd HH:mm:ss")));
-                Lst.Add(new Cls_Parametros("@StrUsuarioModifica", C_StrUsuarioModifico));
+                Lst.Add(new Cls_Parametros("@StrUsuarioModifica", C_StrUsuarioModifica));
 
                 mensaje = AccesoDatos.EjecutarProcedimiento("actualizar_Producto", Lst);
             }

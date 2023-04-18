@@ -66,6 +66,7 @@ namespace Pantallas_Sistema_Facturacion
             {
                 LLenar_Grid();
             }
+            txtBuscar.Text = string.Empty;
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)

@@ -55,7 +55,7 @@ namespace Pantallas_Sistema_Facturacion
                 {
                     foreach (DataRow row in Dt.Rows)
                     {
-                        dgProductos.Rows.Add(row[0].ToString(), row[1].ToString(), row[2].ToString(), row[3].ToString(), row[4], row[5].ToString());
+                        dgProductos.Rows.Add(row[0], row[2], row[1], row[5], row[3], row[8]);
                     }
                 }
                 else
