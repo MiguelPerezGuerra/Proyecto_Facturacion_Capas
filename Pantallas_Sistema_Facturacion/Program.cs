@@ -16,7 +16,7 @@ namespace Pantallas_Sistema_Facturacion
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmLogin());
+            Application.Run(new frmPrincipal());
         }
     }
 }

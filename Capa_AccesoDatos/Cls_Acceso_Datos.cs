@@ -49,7 +49,7 @@ namespace Capa_AccesoDatos
             try
             {
                 // creamos un objeto de tipo conexion a la base de datos y se pasa como parámetro la cadena de conexion.
-                Conexion = new SqlConnection("Data Source=LAPTOP-MIGUEL;Initial Catalog=PractivaDB;Integrated Security=True");
+                Conexion = new SqlConnection("Data Source=|Nombre-DB|Initial Catalog=[DBFACTURAS];Integrated Security=True");
                 Conexion.Open();
             }
             catch (Exception ex)

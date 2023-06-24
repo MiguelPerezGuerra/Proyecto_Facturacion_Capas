@@ -49,12 +49,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmAcercaDe.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmAcercaDe.Designer.cs">
-      <DependentUpon>frmAcercaDe.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmAdminSeguridad.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,12 +79,6 @@
     <Compile Include="frmFacturas.Designer.cs">
       <DependentUpon>frmFacturas.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmInformes.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmInformes.Designer.cs">
-      <DependentUpon>frmInformes.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmProductos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,12 +90,6 @@
     </Compile>
     <Compile Include="frmRolEmpleados.Designer.cs">
       <DependentUpon>frmRolEmpleados.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmListaAyuda.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmListaAyuda.Designer.cs">
-      <DependentUpon>frmListaAyuda.cs</DependentUpon>
     </Compile>
     <Compile Include="frmListaCategorias.cs">
       <SubType>Form</SubType>
@@ -159,9 +141,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmAcercaDe.resx">
-      <DependentUpon>frmAcercaDe.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmAdminSeguridad.resx">
       <DependentUpon>frmAdminSeguridad.cs</DependentUpon>
     </EmbeddedResource>
@@ -177,17 +156,11 @@
     <EmbeddedResource Include="frmFacturas.resx">
       <DependentUpon>frmFacturas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmInformes.resx">
-      <DependentUpon>frmInformes.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmProductos.resx">
       <DependentUpon>frmProductos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmRolEmpleados.resx">
       <DependentUpon>frmRolEmpleados.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmListaAyuda.resx">
-      <DependentUpon>frmListaAyuda.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmListaCategorias.resx">
       <DependentUpon>frmListaCategorias.cs</DependentUpon>
@@ -278,6 +251,9 @@
       <Project>{deb691fd-f567-4a19-8686-c0bb5d738ccd}</Project>
       <Name>Capa_LogicaDeNegocios</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logoData.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

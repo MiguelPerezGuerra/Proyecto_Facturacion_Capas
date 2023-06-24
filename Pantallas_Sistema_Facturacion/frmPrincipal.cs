@@ -14,9 +14,14 @@ namespace Pantallas_Sistema_Facturacion
 {
     public partial class frmPrincipal : MaterialForm
     {
+        public void DisenoFormulario()
+        {
+            SkinManager.ColorScheme= new ColorScheme(Primary.Blue800, Primary.Blue900, Primary.Blue900, Accent.Green700, TextShade.WHITE);
+        }
         public frmPrincipal()
         {
             InitializeComponent();
+            DisenoFormulario();
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -65,13 +70,6 @@ namespace Pantallas_Sistema_Facturacion
             frmListaFacturas listaFacturas= new frmListaFacturas();
             AbrirForm(listaFacturas);
         }
-
-        private void btnInformes_Click(object sender, EventArgs e)
-        {
-            frmInformes listaInformes= new frmInformes();
-            AbrirForm(listaInformes);
-        }
-
         private void btnEmpleados_Click(object sender, EventArgs e)
         {
             frmListaEmpleados listaEmpleados= new frmListaEmpleados();
@@ -89,19 +87,6 @@ namespace Pantallas_Sistema_Facturacion
             frmAdminSeguridad Seguridad= new frmAdminSeguridad();
             AbrirForm(Seguridad);
         }
-
-        private void btnAyuda_Click(object sender, EventArgs e)
-        {
-            frmListaAyuda listaAyuda= new frmListaAyuda();
-            AbrirForm(listaAyuda);
-        }
-
-        private void btnAcerca_Click(object sender, EventArgs e)
-        {
-            frmAcercaDe AcerdaDe = new frmAcercaDe();
-            AbrirForm(AcerdaDe);
-        }
-
         
     }
 }
